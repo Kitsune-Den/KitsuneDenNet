@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── KitsuneDen Palette (from Gemini design system) ── */
+
+  /* Backgrounds */
+  --color-den-dark: #0a0a0f;
+  --color-den-deeper: #111118;
+  --color-den-surface: #1a1a24;
+  --color-den-muted: #242430;
+  --color-den-border: #2e2e3a;
+
+  /* Tier colors */
+  --color-tier-gilded: #FFD700;
+  --color-tier-azure: #00E5FF;
+  --color-tier-bronze: #CD7F32;
+  --color-tier-gray: #8E8E8E;
+
+  /* Accents */
+  --color-fox-orange: #f59e0b;
+  --color-fox-amber: #d97706;
+  --color-fox-warm: #fbbf24;
+  --color-ember: #ef4444;
+  --color-moss: #22c55e;
+
+  /* Text */
+  --color-text-primary: #f3f4f6;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+
+  /* Typography */
+  --font-display: 'Saira Stencil One', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+}
+
+body {
+  margin: 0;
+  background: var(--color-den-dark);
+  color: var(--color-text-primary);
+}
