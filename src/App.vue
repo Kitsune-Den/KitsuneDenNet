@@ -4,8 +4,8 @@ import { projects, sections, featured } from './data/projects'
 import ProjectCard from './components/ProjectCard.vue'
 import FeaturedProject from './components/FeaturedProject.vue'
 import EmptyDen from './components/EmptyDen.vue'
-import heroImg from './assets/hero.png'
-import logoImg from './assets/logo.png'
+import heroImg from './assets/hero.webp'
+import logoImg from './assets/logo.webp'
 
 const artifactCount = computed(() => projects.length + 1) // +1 for featured
 

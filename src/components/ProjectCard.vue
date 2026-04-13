@@ -9,10 +9,6 @@ const props = defineProps<{
 const meta = computed(() => tierMeta[props.project.tier])
 const isDeployed = computed(() => props.project.type === 'deployed')
 
-const openLink = (url: string | undefined) => {
-  if (url) window.open(url, '_blank')
-}
-
 /**
  * Tier-specific classes for the card border & glow.
  * We use inline style for the box-shadow since Tailwind
@@ -26,6 +22,20 @@ const tierStyles = computed(() => {
     gray:   { border: 'border-tier-gray/30',    glow: 'none' },
   }
   return colors[props.project.tier] ?? colors.gray
+})
+
+/**
+ * Static class map — Tailwind v4 can't detect dynamically interpolated classes.
+ * These must be full literal strings so the compiler picks them up.
+ */
+const tierBadgeClasses = computed(() => {
+  const map: Record<string, string> = {
+    'tier-gilded': 'bg-tier-gilded/15 text-tier-gilded',
+    'tier-azure':  'bg-tier-azure/15 text-tier-azure',
+    'tier-bronze': 'bg-tier-bronze/15 text-tier-bronze',
+    'tier-gray':   'bg-tier-gray/15 text-tier-gray',
+  }
+  return map[meta.value.color] ?? map['tier-gray']
 })
 
 const hoverGlow = computed(() => {
@@ -55,7 +65,7 @@ const hoverGlow = computed(() => {
     <div class="flex items-center justify-between mb-3">
       <span
         class="rounded-full px-2.5 py-0.5 text-xs font-semibold tracking-wide uppercase"
-        :class="`bg-${meta.color}/15 text-${meta.color}`"
+        :class="tierBadgeClasses"
       >
         {{ meta.label }}
       </span>
@@ -100,30 +110,39 @@ const hoverGlow = computed(() => {
       >
         {{ isDeployed ? '[ open ]' : '[ view code ]' }}
       </span>
-      <span
+      <a
         v-if="isDeployed && project.repo"
+        :href="project.repo"
+        target="_blank"
+        rel="noopener noreferrer"
         class="font-mono uppercase tracking-wider text-text-muted
-               hover:text-text-secondary transition-colors cursor-pointer"
-        @click.prevent.stop="openLink(project.repo)"
+               hover:text-text-secondary transition-colors"
+        @click.stop
       >
         [ source ]
-      </span>
-      <span
+      </a>
+      <a
         v-if="project.appStore"
+        :href="project.appStore"
+        target="_blank"
+        rel="noopener noreferrer"
         class="font-mono uppercase tracking-wider text-text-muted
-               hover:text-text-secondary transition-colors cursor-pointer"
-        @click.prevent.stop="openLink(project.appStore)"
+               hover:text-text-secondary transition-colors"
+        @click.stop
       >
         [ ios ]
-      </span>
-      <span
+      </a>
+      <a
         v-if="project.googlePlay"
+        :href="project.googlePlay"
+        target="_blank"
+        rel="noopener noreferrer"
         class="font-mono uppercase tracking-wider text-text-muted
-               hover:text-text-secondary transition-colors cursor-pointer"
-        @click.prevent.stop="openLink(project.googlePlay)"
+               hover:text-text-secondary transition-colors"
+        @click.stop
       >
         [ android ]
-      </span>
+      </a>
     </div>
   </a>
 </template>

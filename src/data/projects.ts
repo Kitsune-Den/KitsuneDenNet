@@ -146,6 +146,18 @@ export const projects: DenProject[] = [
     tags: ['dnd', 'tabletop', 'multiplayer', 'ai'],
     section: 'apps',
   },
+  {
+    name: 'Kitsune7Den',
+    tagline: 'A standalone Windows app for managing your 7D2D dedicated server',
+    description:
+      'Dashboard, live console, player management, config editor for 90+ properties, mod manager, scheduled backups with auto-prune, SteamCMD integration, and 4 swappable themes. No web stack — just an exe.',
+    type: 'source',
+    tier: 'gilded',
+    url: 'https://github.com/Kitsune-Den/Kitsune7Den',
+    repo: 'https://github.com/Kitsune-Den/Kitsune7Den',
+    tags: ['7dtd', 'server-management', 'wpf', 'dotnet'],
+    section: 'apps',
+  },
 
   // ── Game Mods ─────────────────────────────────────────────
   {
