@@ -131,6 +131,15 @@ const projectsBySection = computed(() => {
           >
             GitHub
           </a>
+          <span class="text-den-border">&middot;</span>
+          <a
+            href="https://ko-fi.com/T6T57VRO7"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-fox-warm transition-colors"
+          >
+            ☕ Support on Ko-fi
+          </a>
         </nav>
       </div>
     </footer>
