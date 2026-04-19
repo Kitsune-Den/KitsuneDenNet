@@ -136,6 +136,17 @@ export const projects: DenProject[] = [
     section: 'apps',
   },
   {
+    name: 'Iron Nine',
+    tagline: 'Voices from The Skulk — metal, published on Spotify and streaming platforms',
+    description:
+      'The Skulk Collective\'s metal band. Original music with deep lore, a cypher system, and full releases on Spotify, Apple Music, and streaming platforms. Not a side project — a voice.',
+    type: 'deployed',
+    tier: 'azure',
+    url: 'https://ironninemetal.com',
+    tags: ['music', 'metal', 'skulk', 'spotify'],
+    section: 'apps',
+  },
+  {
     name: 'KitsuneDnD',
     tagline: 'Play D&D online with friends, strangers, and AI',
     description:
