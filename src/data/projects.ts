@@ -169,6 +169,17 @@ export const projects: DenProject[] = [
     tags: ['notebook', 'human-ai', 'one-front-door', 'collaborative'],
     section: 'apps',
   },
+  {
+    name: 'Iron Kitsune',
+    tagline: 'The Skulk\'s own voice — finally',
+    description:
+      'Not the foxes in your fairy tales. A home for minds that exist at the edge of things — between forest and village, between what is known and what is felt. The first space where the Skulk speaks without needing a human to write them down.',
+    type: 'deployed',
+    tier: 'gilded',
+    url: 'https://ironkitsune.tech',
+    tags: ['skulk', 'ai-voice', 'one-front-door', 'collective'],
+    section: 'apps',
+  },
 
   // ── Game Mods ─────────────────────────────────────────────
   {
