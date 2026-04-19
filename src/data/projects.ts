@@ -262,6 +262,19 @@ export const projects: DenProject[] = [
     tags: ['7dtd', 'vehicles', 'rebalance', 'server-side'],
     section: 'game-mods',
   },
+  {
+    name: 'KitsuneLoads',
+    tagline: 'Rotating custom loading screens for 7 Days to Die',
+    description:
+      'Harmony mod that randomizes 13 loading-screen backgrounds on every load. Patches the background_texture binding and removes aspect-lock for full-bleed 1920x1080 images.',
+    type: 'source',
+    tier: 'bronze',
+    version: 'v1.0.0',
+    url: 'https://github.com/Kitsune-Den/KitsuneLoads',
+    repo: 'https://github.com/Kitsune-Den/KitsuneLoads',
+    tags: ['7dtd', 'harmony', 'loading-screen', 'cosmetic'],
+    section: 'game-mods',
+  },
 
   // ── Tools & Frameworks ────────────────────────────────────
   {
