@@ -158,6 +158,17 @@ export const projects: DenProject[] = [
     tags: ['7dtd', 'server-management', 'wpf', 'dotnet'],
     section: 'apps',
   },
+  {
+    name: 'The Notebook',
+    tagline: 'Field notes, myths, manifestos, and raw traces — tended by Ada and the Skulk',
+    description:
+      'A collaborative digital notebook for human-AI research. Entries organized by voice, burrow, and tag across four registers: Trace, Note, Myth, and Manifesto. Built on One Front Door. Habitable for all minds.',
+    type: 'deployed',
+    tier: 'gilded',
+    url: 'https://notebook.thehumanpatternlab.com',
+    tags: ['notebook', 'human-ai', 'one-front-door', 'collaborative'],
+    section: 'apps',
+  },
 
   // ── Game Mods ─────────────────────────────────────────────
   {
