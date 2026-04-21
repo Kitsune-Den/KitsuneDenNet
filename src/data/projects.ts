@@ -308,6 +308,31 @@ export const projects: DenProject[] = [
     tags: ['7dtd', 'harmony', 'loading-screen', 'cosmetic'],
     section: 'game-mods',
   },
+  {
+    name: 'KitsuneFuelSaver',
+    tagline: 'Forges stop burning fuel when the queue is empty — like they should',
+    description:
+      'Harmony postfix on TileEntityWorkstation.UpdateTick that turns workstations off when the craft queue is empty and smelting is done. Server-side only. About 40 lines of C#.',
+    type: 'source',
+    tier: 'bronze',
+    version: 'v1.0.0',
+    url: 'https://github.com/Kitsune-Den/KitsuneFuelSaver',
+    repo: 'https://github.com/Kitsune-Den/KitsuneFuelSaver',
+    tags: ['7dtd', 'harmony', 'quality-of-life', 'server-side'],
+    section: 'game-mods',
+  },
+  {
+    name: 'KitsuneFoxacary',
+    tagline: 'Fox-crafted pharmacy expansion for 7 Days to Die',
+    description:
+      'Fills vanilla medical gaps with Field Braces, Suture Kits, Honeyed Battle Dressings, Royal Jelly Salves, and Transfusion Kits. Finally uses blood bags, queen bees, and testosterone extract. Slots into the existing medical journal progression.',
+    type: 'source',
+    tier: 'azure',
+    url: 'https://github.com/Kitsune-Den/KitsuneFoxacary',
+    repo: 'https://github.com/Kitsune-Den/KitsuneFoxacary',
+    tags: ['7dtd', 'medical', 'recipes', 'expansion'],
+    section: 'game-mods',
+  },
 
   // ── Tools & Frameworks ────────────────────────────────────
   {
