@@ -133,6 +133,13 @@ const projectsBySection = computed(() => {
           </a>
           <span class="text-den-border">&middot;</span>
           <a
+            href="/privacy/"
+            class="hover:text-tier-gilded transition-colors"
+          >
+            Privacy
+          </a>
+          <span class="text-den-border">&middot;</span>
+          <a
             href="https://ko-fi.com/T6T57VRO7"
             target="_blank"
             rel="noopener noreferrer"

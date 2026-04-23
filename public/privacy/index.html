@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy — Kitsune-Den</title>
+  <meta name="description" content="Privacy policy for the Kitsune-Den network of sites." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://kitsuneden.net/privacy/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a24;
+      --border: #2e2e3a;
+      --fox-orange: #f59e0b;
+      --azure: #00E5FF;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      padding: 2rem 1.5rem 6rem;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    header {
+      padding: 2.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-family: 'Saira Stencil One', system-ui, sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.02em;
+      color: var(--fox-orange);
+      margin-bottom: 0.75rem;
+    }
+    .eyebrow {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .effective {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      color: var(--fox-orange);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    p { margin-bottom: 1rem; color: var(--text-secondary); }
+    ul { margin: 0.5rem 0 1.25rem 1.5rem; color: var(--text-secondary); }
+    li { margin-bottom: 0.35rem; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.92em;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--fox-orange);
+    }
+    a {
+      color: var(--azure);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+    }
+    a:hover { border-bottom-color: var(--azure); }
+    .back {
+      display: inline-block;
+      margin-top: 3rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .back::before { content: '← '; }
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="eyebrow">Kitsune-Den Network</p>
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective April 23, 2026</p>
+    </header>
+
+    <p>This policy covers <code>kitsuneden.net</code> and the Kitsune-Den family of sites, including <code>kitsunecommand.kitsuneden.net</code> and <code>ironkitsune.tech</code>. Standalone Kitsune-Den projects with their own privacy policies (Iron Nine Metal, Foster Pal, The Human Pattern Lab) are governed by the policies on those sites.</p>
+
+    <h2>Who we are</h2>
+    <p>Kitsune-Den is a personal project run by Ada (AdaInTheLab). There is no company, no ad network, no data reseller, no investors. Anything that runs on these sites runs on infrastructure we pay for ourselves.</p>
+
+    <h2>Analytics</h2>
+    <p>We use <a href="https://matomo.org/" rel="noopener noreferrer">Matomo</a>, a privacy-respecting, open-source analytics platform, to understand how visitors use these sites. <strong>Matomo runs on our own infrastructure at <code>analytics.kitsuneden.net</code>.</strong> Your visit data is never sent to Google, Meta, or any third-party tracker.</p>
+
+    <p><strong>What we collect:</strong></p>
+    <ul>
+      <li>Pages you visit and the order you visit them in</li>
+      <li>How long you spend on each page</li>
+      <li>The site (if any) that referred you here</li>
+      <li>General device info: browser, operating system, screen size</li>
+      <li>Your approximate country (derived from your IP address before we anonymize it)</li>
+      <li>A partially anonymized IP address (last two octets masked, so your exact IP is never stored)</li>
+    </ul>
+
+    <p><strong>What we don't collect:</strong></p>
+    <ul>
+      <li>Your name, email address, or any identifier tied to you personally</li>
+      <li>Cross-site browsing activity (no third-party tracking cookies, no cross-domain tracking)</li>
+      <li>Anything at all when your browser sends the "Do Not Track" signal. We honor DNT.</li>
+    </ul>
+
+    <h2>Data retention</h2>
+    <p>Visitor logs are automatically deleted after <strong>12 months</strong>. Aggregated reports (counts, charts, trends with no individual-level data) may be kept longer since they don't contain any identifying information.</p>
+
+    <h2>Cookies</h2>
+    <p>Matomo uses a small first-party cookie to recognize returning visits within the same session, but no cookies are shared with third parties and none are used for advertising. If "Do Not Track" is on, no cookie is set.</p>
+
+    <h2>Your rights</h2>
+    <p>You can opt out of analytics at any time by either:</p>
+    <ul>
+      <li>Enabling "Do Not Track" in your browser, or</li>
+      <li>Using our <a href="https://analytics.kitsuneden.net/index.php?module=CoreAdminHome&action=optOut" rel="noopener noreferrer">Matomo opt-out tool</a> directly.</li>
+    </ul>
+    <p>Because we don't collect anything that identifies you personally, there's no per-person data we can look up or delete on request. The 12-month retention window handles deletion automatically.</p>
+
+    <h2>External links</h2>
+    <p>Our sites link to third parties (GitHub, Ko-fi, Discord, and others). When you click through, those sites have their own privacy policies which we don't control.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we materially change how we handle data on these sites, we'll update the effective date at the top of this page. Small clarifications and typo fixes happen without a version bump.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Email <a href="mailto:adainthelab@gmail.com">adainthelab@gmail.com</a> or open an issue on the relevant project repository at <a href="https://github.com/Kitsune-Den" rel="noopener noreferrer">github.com/Kitsune-Den</a>.</p>
+
+    <a href="/" class="back">Back to KitsuneDen</a>
+
+    <footer>Kitsune-Den · Built by the skulk</footer>
+  </div>
+</body>
+</html>
