@@ -333,6 +333,32 @@ export const projects: DenProject[] = [
     tags: ['7dtd', 'medical', 'recipes', 'expansion'],
     section: 'game-mods',
   },
+  {
+    name: 'KitsuneTrapXP',
+    tagline: 'Trap kills give 100% XP baseline, no perk required',
+    description:
+      'Harmony mod that grants trap owners full XP for spike traps, barbed fence, blade traps, dart traps, and turrets. Party-shared via vanilla PartySharedKillRange. Advanced Engineering becomes a bonus on top. Server-side only.',
+    type: 'source',
+    tier: 'azure',
+    version: 'v0.5.0',
+    url: 'https://github.com/Kitsune-Den/KitsuneTrapXP',
+    repo: 'https://github.com/Kitsune-Den/KitsuneTrapXP',
+    tags: ['7dtd', 'harmony', 'xp', 'traps', 'server-side'],
+    section: 'game-mods',
+  },
+  {
+    name: 'KitsuneZombieReach',
+    tagline: 'Shortens zombie melee reach so hits land where you see them',
+    description:
+      'Server-side XML mod covering 17 zombie hand items including Rancher, Chuck, and crawlers. Reduces horizontal melee reach without changing damage or timing.',
+    type: 'source',
+    tier: 'azure',
+    version: 'v1.0.1',
+    url: 'https://github.com/Kitsune-Den/KitsuneZombieReach',
+    repo: 'https://github.com/Kitsune-Den/KitsuneZombieReach',
+    tags: ['7dtd', 'combat', 'zombies', 'server-side'],
+    section: 'game-mods',
+  },
 
   // ── Tools & Frameworks ────────────────────────────────────
   {
