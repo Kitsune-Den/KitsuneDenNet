@@ -27,6 +27,8 @@ export interface DenProject {
   url: string
   /** GitHub repo URL — omit for private/closed-source projects */
   repo?: string
+  /** Documentation site URL — omit if none */
+  docs?: string
   /** Tags for filtering / visual flair */
   tags: string[]
   /** Path to a custom icon/image (relative to public/) */
@@ -203,6 +205,7 @@ export const projects: DenProject[] = [
     version: 'v2.2.0',
     url: 'https://github.com/Kitsune-Den/KitsuneCommand',
     repo: 'https://github.com/Kitsune-Den/KitsuneCommand',
+    docs: 'https://kitsunecommand.kitsuneden.net',
     tags: ['7dtd', 'server-management', 'web-panel', 'api'],
     section: 'game-mods',
   },

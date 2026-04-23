@@ -122,6 +122,17 @@ const hoverGlow = computed(() => {
         [ source ]
       </a>
       <a
+        v-if="project.docs"
+        :href="project.docs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono uppercase tracking-wider text-text-muted
+               hover:text-text-secondary transition-colors"
+        @click.stop
+      >
+        [ docs ]
+      </a>
+      <a
         v-if="project.appStore"
         :href="project.appStore"
         target="_blank"
