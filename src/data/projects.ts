@@ -219,6 +219,20 @@ export const projects: DenProject[] = [
   },
 
   // ── Game Mods ─────────────────────────────────────────────
+  // 7 Days to Die mods first; Hytale mods grouped at the bottom of this section.
+  {
+    name: 'KitsunePvPExtended',
+    tagline: 'Server-side PvP damage rebalance for 7 Days to Die 2.0',
+    description:
+      'Per-weapon-class scaling, body-part multipliers, and a per-hit damage cap. PvE stays 100% vanilla. Hot-reloadable XML config, bundled balance presets, daily CSV telemetry. Built for community bounty BB-001.',
+    type: 'source',
+    tier: 'azure',
+    version: 'v0.1.0',
+    url: 'https://github.com/Kitsune-Den/KitsunePvPExtended',
+    repo: 'https://github.com/Kitsune-Den/KitsunePvPExtended',
+    tags: ['7dtd', 'pvp', 'harmony', 'server-side', 'balance'],
+    section: 'game-mods',
+  },
   {
     name: 'KitsuneCommand',
     tagline: 'RESTful API & web panel for 7 Days to Die servers',
@@ -234,18 +248,6 @@ export const projects: DenProject[] = [
     section: 'game-mods',
   },
   {
-    name: 'KitsuneCommand Hytale',
-    tagline: 'Server management & economy plugin for Hytale',
-    description:
-      'Points economy with kill tracking, playtime rewards, daily bonuses, and a web admin panel. Java reimagining of the original KitsuneCommand.',
-    type: 'source',
-    tier: 'azure',
-    url: 'https://github.com/Kitsune-Den/KitsuneCommandHytale',
-    repo: 'https://github.com/Kitsune-Den/KitsuneCommandHytale',
-    tags: ['hytale', 'server-management', 'economy', 'java'],
-    section: 'game-mods',
-  },
-  {
     name: 'Kitsune Kitchen 7D',
     tagline: 'A fox-crafted cooking expansion for 7 Days to Die',
     description:
@@ -256,31 +258,6 @@ export const projects: DenProject[] = [
     url: 'https://github.com/Kitsune-Den/KitsuneKitchen7D',
     repo: 'https://github.com/Kitsune-Den/KitsuneKitchen7D',
     tags: ['7dtd', 'cooking', 'mod'],
-    section: 'game-mods',
-  },
-  {
-    name: 'Kitsune Kitchen',
-    tagline: '12 custom food items with buffs for Hytale',
-    description:
-      'Three-tier cooking progression from campfire to chef\'s stove. Healing, stamina, and damage resistance buffs with 30-45 minute durations.',
-    type: 'source',
-    tier: 'azure',
-    version: 'v1.1.0',
-    url: 'https://github.com/Kitsune-Den/KitsuneKitchen',
-    repo: 'https://github.com/Kitsune-Den/KitsuneKitchen',
-    tags: ['hytale', 'cooking', 'data-pack'],
-    section: 'game-mods',
-  },
-  {
-    name: 'KitsuneFox',
-    tagline: 'Tame a fox companion in Hytale',
-    description:
-      'Craft a Fox Treat, befriend a Kitsune Fox with 500 HP. Phase 1 complete ~ leveling, abilities, and regional variants coming.',
-    type: 'source',
-    tier: 'azure',
-    url: 'https://github.com/Kitsune-Den/KitsuneFox',
-    repo: 'https://github.com/Kitsune-Den/KitsuneFox',
-    tags: ['hytale', 'companion', 'data-pack'],
     section: 'game-mods',
   },
   {
@@ -384,6 +361,45 @@ export const projects: DenProject[] = [
     url: 'https://github.com/Kitsune-Den/KitsuneZombieReach',
     repo: 'https://github.com/Kitsune-Den/KitsuneZombieReach',
     tags: ['7dtd', 'combat', 'zombies', 'server-side'],
+    section: 'game-mods',
+  },
+
+  // Hytale mods
+  {
+    name: 'KitsuneCommand Hytale',
+    tagline: 'Server management & economy plugin for Hytale',
+    description:
+      'Points economy with kill tracking, playtime rewards, daily bonuses, and a web admin panel. Java reimagining of the original KitsuneCommand.',
+    type: 'source',
+    tier: 'azure',
+    url: 'https://github.com/Kitsune-Den/KitsuneCommandHytale',
+    repo: 'https://github.com/Kitsune-Den/KitsuneCommandHytale',
+    tags: ['hytale', 'server-management', 'economy', 'java'],
+    section: 'game-mods',
+  },
+  {
+    name: 'Kitsune Kitchen',
+    tagline: '12 custom food items with buffs for Hytale',
+    description:
+      'Three-tier cooking progression from campfire to chef\'s stove. Healing, stamina, and damage resistance buffs with 30-45 minute durations.',
+    type: 'source',
+    tier: 'azure',
+    version: 'v1.1.0',
+    url: 'https://github.com/Kitsune-Den/KitsuneKitchen',
+    repo: 'https://github.com/Kitsune-Den/KitsuneKitchen',
+    tags: ['hytale', 'cooking', 'data-pack'],
+    section: 'game-mods',
+  },
+  {
+    name: 'KitsuneFox',
+    tagline: 'Tame a fox companion in Hytale',
+    description:
+      'Craft a Fox Treat, befriend a Kitsune Fox with 500 HP. Phase 1 complete ~ leveling, abilities, and regional variants coming.',
+    type: 'source',
+    tier: 'azure',
+    url: 'https://github.com/Kitsune-Den/KitsuneFox',
+    repo: 'https://github.com/Kitsune-Den/KitsuneFox',
+    tags: ['hytale', 'companion', 'data-pack'],
     section: 'game-mods',
   },
 
