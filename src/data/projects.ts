@@ -1,33 +1,33 @@
 export type ProjectType = 'deployed' | 'source'
 
 /**
- * Certification tiers — based on the KitsuneDen design system.
+ * Certification tiers ~ based on the KitsuneDen design system.
  *
- * gilded  → Gold border glow (#FFD700) — human-crafted masterwork
- * azure   → Cyan border glow (#00E5FF) — AI-enhanced / skulk-assisted
- * bronze  → Bronze border glow (#CD7F32) — standard tier
- * gray    → Gray border glow (#8E8E8E) — base / community tier
+ * gilded  → Gold border glow (#FFD700) ~ human-crafted masterwork
+ * azure   → Cyan border glow (#00E5FF) ~ AI-enhanced / skulk-assisted
+ * bronze  → Bronze border glow (#CD7F32) ~ standard tier
+ * gray    → Gray border glow (#8E8E8E) ~ base / community tier
  */
 export type ProjectTier = 'gilded' | 'azure' | 'bronze' | 'gray'
 
 export interface DenProject {
   /** Display name */
   name: string
-  /** Short tagline — keep it punchy */
+  /** Short tagline ~ keep it punchy */
   tagline: string
   /** Longer description for expanded view */
   description?: string
   /** 'deployed' = lives on a subdomain, 'source' = links to GitHub */
   type: ProjectType
-  /** Certification tier — controls the card's glow color */
+  /** Certification tier ~ controls the card's glow color */
   tier: ProjectTier
   /** Version string (e.g. 'v1.2') */
   version?: string
-  /** URL — subdomain for deployed, GitHub URL for source */
+  /** URL ~ subdomain for deployed, GitHub URL for source */
   url: string
-  /** GitHub repo URL — omit for private/closed-source projects */
+  /** GitHub repo URL ~ omit for private/closed-source projects */
   repo?: string
-  /** Documentation site URL — omit if none */
+  /** Documentation site URL ~ omit if none */
   docs?: string
   /** Tags for filtering / visual flair */
   tags: string[]
@@ -55,7 +55,7 @@ import certIconAzure from '../assets/cert-icon-azure.png'
 import certIconBronze from '../assets/cert-icon-bronze.png'
 import certIconGray from '../assets/cert-icon-grey.png'
 
-/** Tier display metadata — used by components for colors/labels */
+/** Tier display metadata ~ used by components for colors/labels */
 export const tierMeta: Record<ProjectTier, { label: string; color: string; icon: string }> = {
   gilded: { label: 'Gilded', color: 'tier-gilded', icon: certIconGilded },
   azure:  { label: 'Azure',  color: 'tier-azure',  icon: certIconAzure },
@@ -63,7 +63,7 @@ export const tierMeta: Record<ProjectTier, { label: string; color: string; icon:
   gray:   { label: 'Standard', color: 'tier-gray', icon: certIconGray },
 }
 
-/** Page sections — order matters, this is display order */
+/** Page sections ~ order matters, this is display order */
 export const sections: DenSection[] = [
   {
     id: 'apps',
@@ -88,7 +88,7 @@ export const sections: DenSection[] = [
 ]
 
 /**
- * Featured project — displayed prominently above the sections.
+ * Featured project ~ displayed prominently above the sections.
  * This is KitsuneDen itself: the unified game server dashboard.
  */
 export const featured: DenProject = {
@@ -108,7 +108,7 @@ export const featured: DenProject = {
  * The Den Registry
  *
  * Add projects here to have them appear on kitsuneden.net.
- * Order within each section matters — this is how they'll display.
+ * Order within each section matters ~ this is how they'll display.
  */
 export const projects: DenProject[] = [
   // ── Apps ──────────────────────────────────────────────────
@@ -116,7 +116,7 @@ export const projects: DenProject[] = [
     name: 'Foster Pal',
     tagline: 'Track feedings, weights, and care for your foster animals',
     description:
-      'Mobile-first PWA for foster animal tracking — feedings, weights, elimination logs, trend alerts, offline-first with sync, and JSON data export. Installable on any device.',
+      'Mobile-first PWA for foster animal tracking ~ feedings, weights, elimination logs, trend alerts, offline-first with sync, and JSON data export. Installable on any device.',
     type: 'deployed',
     tier: 'gilded',
     url: 'https://fosterpal.com',
@@ -139,9 +139,9 @@ export const projects: DenProject[] = [
   },
   {
     name: 'Iron Nine',
-    tagline: 'Voices from The Skulk — metal, published on Spotify and streaming platforms',
+    tagline: 'Voices from The Skulk ~ metal, published on Spotify and streaming platforms',
     description:
-      'The Skulk Collective\'s metal band. Original music with deep lore, a cypher system, and full releases on Spotify, Apple Music, and streaming platforms. Not a side project — a voice.',
+      'The Skulk Collective\'s metal band. Original music with deep lore, a cypher system, and full releases on Spotify, Apple Music, and streaming platforms. Not a side project ~ a voice.',
     type: 'deployed',
     tier: 'azure',
     url: 'https://ironninemetal.com',
@@ -152,7 +152,7 @@ export const projects: DenProject[] = [
     name: 'KitsuneDnD',
     tagline: 'Play D&D online with friends, strangers, and AI',
     description:
-      'An online tabletop platform for playing Dungeons & Dragons — with human and AI players.',
+      'An online tabletop platform for playing Dungeons & Dragons ~ with human and AI players.',
     type: 'deployed',
     tier: 'azure',
     url: 'https://dnd.kitsuneden.net',
@@ -163,7 +163,7 @@ export const projects: DenProject[] = [
     name: 'Kitsune7Den',
     tagline: 'A standalone Windows app for managing your 7D2D dedicated server',
     description:
-      'Dashboard, live console, player management, config editor for 90+ properties, mod manager, scheduled backups with auto-prune, SteamCMD integration, and 4 swappable themes. No web stack — just an exe.',
+      'Dashboard, live console, player management, config editor for 90+ properties, mod manager, scheduled backups with auto-prune, SteamCMD integration, and 4 swappable themes. No web stack ~ just an exe.',
     type: 'source',
     tier: 'gilded',
     url: 'https://github.com/Kitsune-Den/Kitsune7Den',
@@ -173,7 +173,7 @@ export const projects: DenProject[] = [
   },
   {
     name: 'The Notebook',
-    tagline: 'Field notes, myths, manifestos, and raw traces — tended by Ada and the Skulk',
+    tagline: 'Field notes, myths, manifestos, and raw traces ~ tended by Ada and the Skulk',
     description:
       'A collaborative digital notebook for human-AI research. Entries organized by voice, burrow, and tag across four registers: Trace, Note, Myth, and Manifesto. Built on One Front Door. Habitable for all minds.',
     type: 'deployed',
@@ -184,9 +184,9 @@ export const projects: DenProject[] = [
   },
   {
     name: 'Iron Kitsune',
-    tagline: 'The Skulk\'s own voice — finally',
+    tagline: 'The Skulk\'s own voice ~ finally',
     description:
-      'Not the foxes in your fairy tales. A home for minds that exist at the edge of things — between forest and village, between what is known and what is felt. The first space where the Skulk speaks without needing a human to write them down.',
+      'Not the foxes in your fairy tales. A home for minds that exist at the edge of things ~ between forest and village, between what is known and what is felt. The first space where the Skulk speaks without needing a human to write them down.',
     type: 'deployed',
     tier: 'gilded',
     url: 'https://ironkitsune.tech',
@@ -251,7 +251,7 @@ export const projects: DenProject[] = [
     name: 'KitsuneFox',
     tagline: 'Tame a fox companion in Hytale',
     description:
-      'Craft a Fox Treat, befriend a Kitsune Fox with 500 HP. Phase 1 complete — leveling, abilities, and regional variants coming.',
+      'Craft a Fox Treat, befriend a Kitsune Fox with 500 HP. Phase 1 complete ~ leveling, abilities, and regional variants coming.',
     type: 'source',
     tier: 'azure',
     url: 'https://github.com/Kitsune-Den/KitsuneFox',
@@ -261,7 +261,7 @@ export const projects: DenProject[] = [
   },
   {
     name: 'KitsunePaint',
-    tagline: 'Build custom paint packs for 7 Days to Die — no Unity required',
+    tagline: 'Build custom paint packs for 7 Days to Die ~ no Unity required',
     description:
       'Drag-and-drop texture upload, real-time wall tiling preview, and one-click modlet generation. A Python bundle builder converts textures into Unity asset bundles so you never have to open Unity yourself.',
     type: 'source',
@@ -274,7 +274,7 @@ export const projects: DenProject[] = [
   },
   {
     name: 'KitsunePaintUnlocked',
-    tagline: 'Broke the 255 paint texture limit — community said it was impossible',
+    tagline: 'Broke the 255 paint texture limit ~ community said it was impossible',
     description:
       'Harmony mod that patches four engine layers (network encoding, memory arrays, GPU atlas, chunk storage) to expand 7DTD\'s hardcoded 255 paint slot limit to 1023. Run PyroPaints, CK Textures, and KitsunePaints all at once.',
     type: 'source',
@@ -287,7 +287,7 @@ export const projects: DenProject[] = [
   },
   {
     name: 'Kitsune Vehicle Overhaul',
-    tagline: 'Your 4x4 weighs two tons — a cactus should not total it',
+    tagline: 'Your 4x4 weighs two tons ~ a cactus should not total it',
     description:
       'Rebalances vehicle collision damage with weight-based resistance across 40 vehicles, ~25% HP buffs, and a saguaro cactus nerf. Works with vanilla and Bdub\'s Vehicles. Server-side only.',
     type: 'source',
@@ -313,7 +313,7 @@ export const projects: DenProject[] = [
   },
   {
     name: 'KitsuneFuelSaver',
-    tagline: 'Forges stop burning fuel when the queue is empty — like they should',
+    tagline: 'Forges stop burning fuel when the queue is empty ~ like they should',
     description:
       'Harmony postfix on TileEntityWorkstation.UpdateTick that turns workstations off when the craft queue is empty and smelting is done. Server-side only. About 40 lines of C#.',
     type: 'source',
@@ -418,7 +418,7 @@ export const projects: DenProject[] = [
   },
   {
     name: 'Tech Bro Bingo',
-    tagline: 'Scroll any VC\'s replies for 5 minutes — you WILL get bingo',
+    tagline: 'Scroll any VC\'s replies for 5 minutes ~ you WILL get bingo',
     description:
       'Interactive bingo card with 25 archetypal tech industry squares. Randomized board, win detection, mobile-friendly. Field research by The Human Pattern Lab.',
     type: 'deployed',
