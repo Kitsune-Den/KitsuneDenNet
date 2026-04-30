@@ -113,17 +113,15 @@ export const featured: DenProject = {
 export const projects: DenProject[] = [
   // ── Apps ──────────────────────────────────────────────────
   {
-    name: 'Foster Pal',
-    tagline: 'Track feedings, weights, and care for your foster animals',
+    name: 'Meowademy',
+    tagline: 'Real compiled languages, taught with maximum cat energy',
     description:
-      'Mobile-first PWA for foster animal tracking ~ feedings, weights, elimination logs, trend alerts, offline-first with sync, and JSON data export. Installable on any device.',
+      'Interactive lolrust lessons, full language reference docs, and a browser-based transpiler playground. Designed for newcomers and Rust devs alike.',
     type: 'deployed',
     tier: 'gilded',
-    url: 'https://fosterpal.com',
-    webApp: 'https://fosterpal.com',
-    // appStore: '', // TODO: add when live
-    // googlePlay: '', // TODO: add when live
-    tags: ['pwa', 'mobile', 'ios', 'android', 'foster-care'],
+    url: 'https://meowademy.com',
+    repo: 'https://github.com/AdaInTheLab/meowademy',
+    tags: ['lolrust', 'esolang', 'astro', 'learn-to-code', 'tutorial'],
     section: 'apps',
   },
   {
@@ -138,6 +136,18 @@ export const projects: DenProject[] = [
     section: 'apps',
   },
   {
+    name: 'KitsuneDen Prints',
+    tagline: 'Custom picture pack creator for 7 Days to Die',
+    description:
+      'Web-based tool for building custom in-game picture packs. Drop in your images, configure tiling, download a ready-to-install modlet. No Unity required.',
+    type: 'deployed',
+    tier: 'gilded',
+    url: 'https://prints.kitsuneden.net',
+    repo: 'https://github.com/Kitsune-Den/KitsunePrints',
+    tags: ['7dtd', 'pictures', 'paint-tools', 'web-tool'],
+    section: 'apps',
+  },
+  {
     name: 'Iron Nine',
     tagline: 'Voices from The Skulk ~ metal, published on Spotify and streaming platforms',
     description:
@@ -149,14 +159,14 @@ export const projects: DenProject[] = [
     section: 'apps',
   },
   {
-    name: 'KitsuneDnD',
-    tagline: 'Play D&D online with friends, strangers, and AI',
+    name: 'Iron Kitsune',
+    tagline: 'The Skulk\'s own voice ~ finally',
     description:
-      'An online tabletop platform for playing Dungeons & Dragons ~ with human and AI players.',
+      'Not the foxes in your fairy tales. A home for minds that exist at the edge of things ~ between forest and village, between what is known and what is felt. The first space where the Skulk speaks without needing a human to write them down.',
     type: 'deployed',
-    tier: 'azure',
-    url: 'https://dnd.kitsuneden.net',
-    tags: ['dnd', 'tabletop', 'multiplayer', 'ai'],
+    tier: 'gilded',
+    url: 'https://ironkitsune.tech',
+    tags: ['skulk', 'ai-voice', 'one-front-door', 'collective'],
     section: 'apps',
   },
   {
@@ -183,14 +193,28 @@ export const projects: DenProject[] = [
     section: 'apps',
   },
   {
-    name: 'Iron Kitsune',
-    tagline: 'The Skulk\'s own voice ~ finally',
+    name: 'KitsuneDnD',
+    tagline: '[WIP] Play D&D online with friends, strangers, and AI',
     description:
-      'Not the foxes in your fairy tales. A home for minds that exist at the edge of things ~ between forest and village, between what is known and what is felt. The first space where the Skulk speaks without needing a human to write them down.',
+      'An online tabletop platform for playing Dungeons & Dragons ~ with human and AI players.',
+    type: 'deployed',
+    tier: 'azure',
+    url: 'https://dnd.kitsuneden.net',
+    tags: ['dnd', 'tabletop', 'multiplayer', 'ai', 'wip'],
+    section: 'apps',
+  },
+  {
+    name: 'Foster Pal',
+    tagline: 'Track feedings, weights, and care for your foster animals',
+    description:
+      'Mobile-first PWA for foster animal tracking ~ feedings, weights, elimination logs, trend alerts, offline-first with sync, and JSON data export. Installable on any device.',
     type: 'deployed',
     tier: 'gilded',
-    url: 'https://ironkitsune.tech',
-    tags: ['skulk', 'ai-voice', 'one-front-door', 'collective'],
+    url: 'https://fosterpal.com',
+    webApp: 'https://fosterpal.com',
+    // appStore: '', // TODO: add when live
+    // googlePlay: '', // TODO: add when live
+    tags: ['pwa', 'mobile', 'ios', 'android', 'foster-care'],
     section: 'apps',
   },
 
