@@ -13,6 +13,30 @@
 <meta property="og:description" content="Reads chat aloud, a voice per person, and live captions + transcription for hearing-impaired members.">
 <meta property="og:image" content="https://kitsuneden.net/echo/assets/echo-fox.png">
 <meta property="og:site_name" content="KitsuneDen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Echo — Discord TTS &amp; accessibility bot">
+<meta name="twitter:description" content="Reads chat aloud, a voice per person, and live captions + transcription for hearing-impaired members.">
+<meta name="twitter:image" content="https://kitsuneden.net/echo/assets/echo-fox.png">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#6c4ce0">
+<meta name="keywords" content="Discord TTS bot, text to speech, accessibility, live transcription, captions, hearing impaired, ElevenLabs, voice bot">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Echo",
+  "applicationCategory": "CommunicationApplication",
+  "operatingSystem": "Discord",
+  "url": "https://kitsuneden.net/echo/",
+  "image": "https://kitsuneden.net/echo/assets/echo-fox.png",
+  "description": "Echo is a Discord bot that reads chat aloud in voice channels, gives each person their own AI voice, and live-captions speech for hearing-impaired members. Free on every server; Premium unlocks ElevenLabs voices.",
+  "author": { "@type": "Organization", "name": "KitsuneDen", "url": "https://kitsuneden.net/" },
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Echo Premium", "price": "3", "priceCurrency": "USD" }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -164,6 +188,11 @@
       <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin:18px 0 0">Premium voices</h3>
       <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">Upgrade a server to ultra-realistic ElevenLabs voices: same commands, the same six picks, richer sound.</p>
     </div>
+    <div class="card-lift" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px">
+      <div style="width:50px;height:50px;border-radius:14px;background:#ffe0e3;display:flex;align-items:center;justify-content:center;font-size:24px">🛡️</div>
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin:18px 0 0">Safe by default</h3>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">Never reads slurs or profanity aloud. Mods add custom filtered words with <code style="font-size:13px;background:var(--code-bg);padding:1px 6px;border-radius:6px">/filter</code> and can mute specific members from being read.</p>
+    </div>
   </div>
 </section>
 
@@ -292,6 +321,13 @@
       <div style="display:flex;flex-direction:column;gap:14px">
         <div><code style="font-size:14px;color:var(--accent);font-weight:500">/premium status · subscribe · manage</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Check the tier, upgrade the server, or manage billing.</p></div>
         <div><code style="font-size:14px;color:var(--accent);font-weight:500">/usage</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">See this month's usage against the server's allowance.</p></div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px">
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 16px">Moderation</h3>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div><code style="font-size:14px;color:var(--accent);font-weight:500">/filter add · remove · list</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Words Echo won't read aloud, on top of the built-in profanity filter.</p></div>
+        <div><code style="font-size:14px;color:var(--accent);font-weight:500">/ttsmute · /ttsunmute</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Stop or resume reading a specific member's messages aloud.</p></div>
       </div>
     </div>
   </div>
