@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echo — Discord text-to-speech &amp; accessibility bot · KitsuneDen</title>
+  <meta name="description" content="Echo reads your Discord server's chat aloud in voice channels, gives everyone their own AI voice, and captions speech for hearing-impaired members. Free voices for all; Premium unlocks ElevenLabs." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://kitsuneden.net/echo/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kitsuneden.net/echo/" />
+  <meta property="og:title" content="Echo — Discord TTS &amp; accessibility bot" />
+  <meta property="og:description" content="Reads chat aloud, a voice per person, and live captions + transcription for hearing-impaired members." />
+  <meta property="og:site_name" content="KitsuneDen" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0a0f; --deeper: #111118; --surface: #1a1a24; --muted: #242430;
+      --border: #2e2e3a; --gilded: #ffd700; --fox: #f59e0b; --fox-warm: #fbbf24;
+      --azure: #00e5ff; --moss: #22c55e;
+      --text: #f3f4f6; --text-2: #9ca3af; --text-muted: #6b7280;
+      --sans: 'Inter', system-ui, sans-serif;
+      --display: 'Saira Stencil One', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.65; }
+    a { color: var(--fox); text-decoration: none; }
+    a:hover { color: var(--fox-warm); }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* nav */
+    nav { border-bottom: 1px solid var(--border); background: var(--deeper); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .wordmark { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.04em; }
+    .wordmark .k { color: var(--gilded); } .wordmark .d { color: var(--text); }
+    nav .links a { color: var(--text-2); font-size: 0.9rem; margin-left: 1.25rem; }
+    nav .links a:hover { color: var(--gilded); }
+
+    /* hero */
+    .hero { text-align: center; padding: 4.5rem 0 3.5rem; border-bottom: 1px solid var(--border); }
+    .hero .badge { display: inline-block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fox); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.9rem; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: var(--display); font-size: 3.5rem; letter-spacing: 0.02em; margin-bottom: 0.75rem; }
+    .hero h1 .accent { color: var(--fox); }
+    .hero p { color: var(--text-2); font-size: 1.15rem; max-width: 30rem; margin: 0 auto 2rem; }
+    .cta { display: inline-flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+    .btn { display: inline-block; padding: 0.7rem 1.4rem; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem; border: 1px solid var(--border); }
+    .btn.primary { background: var(--fox); color: #1a1206; border-color: var(--fox); }
+    .btn.primary:hover { background: var(--fox-warm); color: #1a1206; }
+    .btn.ghost { color: var(--text); }
+    .btn.ghost:hover { border-color: var(--fox); color: var(--fox-warm); }
+
+    section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+    h2 { font-family: var(--display); font-size: 1.6rem; letter-spacing: 0.02em; margin-bottom: 0.4rem; }
+    h2 .accent { color: var(--fox); }
+    .lead { color: var(--text-2); margin-bottom: 1.75rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem; }
+    .card h3 { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .card p { color: var(--text-2); font-size: 0.92rem; }
+    .card .ico { font-size: 1.5rem; display: block; margin-bottom: 0.6rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    td code { font-family: var(--mono); color: var(--fox-warm); background: var(--muted); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.86em; white-space: nowrap; }
+    td .desc { color: var(--text-2); }
+
+    .voices { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .voice { font-family: var(--mono); font-size: 0.85rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.85rem; color: var(--text-2); }
+    .voice b { color: var(--text); }
+
+    .a11y { background: linear-gradient(180deg, var(--surface), var(--deeper)); border: 1px solid var(--border); border-left: 3px solid var(--azure); border-radius: 0.75rem; padding: 1.5rem; }
+    .a11y h2 .accent { color: var(--azure); }
+
+    .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .tier { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; }
+    .tier.pro { border-color: var(--fox); box-shadow: 0 0 24px rgba(245, 158, 11, 0.12); }
+    .tier .name { font-family: var(--display); font-size: 1.25rem; letter-spacing: 0.02em; }
+    .tier.pro .name { color: var(--fox); }
+    .tier .price { font-size: 1.9rem; font-weight: 700; margin: 0.4rem 0 0.1rem; }
+    .tier .price small { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
+    .tier .sub { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    .tier ul { list-style: none; }
+    .tier li { color: var(--text-2); font-size: 0.92rem; padding: 0.3rem 0 0.3rem 1.4rem; position: relative; }
+    .tier li::before { content: '✓'; color: var(--moss); position: absolute; left: 0; }
+
+    footer { padding: 2rem 0; color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+    footer a { color: var(--text-muted); } footer a:hover { color: var(--gilded); }
+
+    @media (max-width: 540px) { .hero h1 { font-size: 2.6rem; } td code { white-space: normal; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a href="/" class="wordmark"><span class="k">Kitsune</span><span class="d">Den</span></a>
+      <div class="links">
+        <a href="#commands">Commands</a>
+        <a href="#pricing">Pricing</a>
+        <a href="/echo/privacy/">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="badge">🦊 a KitsuneDen bot</span>
+      <h1><span class="accent">Echo</span></h1>
+      <p>The Discord bot that reads your chat aloud, gives everyone their own voice, and captions speech so no one's left out.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1520481710096122098&permissions=3148800&scope=bot+applications.commands">Add to Discord</a>
+        <a class="btn ghost" href="#commands">See commands</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2>What <span class="accent">Echo</span> does</h2>
+      <p class="lead">Drop it in a server, hop in voice, and start talking — or typing.</p>
+      <div class="grid">
+        <div class="card"><span class="ico">🔊</span><h3>Reads chat aloud</h3><p>Auto-joins your voice channel when people gather and speaks new messages, then leaves when it's empty.</p></div>
+        <div class="card"><span class="ico">🗣️</span><h3>A voice per person</h3><p>Everyone can pick their own voice with <code>/myvoice</code>, so the channel sounds like real people talking.</p></div>
+        <div class="card"><span class="ico">♿</span><h3>Accessibility built in</h3><p>Captions voice activity and live-transcribes speech to a text channel — free on every server.</p></div>
+        <div class="card"><span class="ico">🔗</span><h3>Smart announcements</h3><p>Calls out links, GIFs, and attachments, skips code blocks and spoilers, and reads names instead of IDs.</p></div>
+        <div class="card"><span class="ico">🗂️</span><h3>Custom pronunciations</h3><p>Teach Echo how to say names and acronyms with <code>/pronounce</code>, per server.</p></div>
+        <div class="card"><span class="ico">✨</span><h3>Premium voices</h3><p>Upgrade a server to ultra-realistic ElevenLabs voices — same commands, richer sound.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Six <span class="accent">voices</span> to choose from</h2>
+      <p class="lead">Pick a server voice with <code>/voice set</code> or your own with <code>/myvoice set</code>. Free servers use natural local voices; Premium unlocks the ElevenLabs versions.</p>
+      <div class="voices">
+        <span class="voice"><b>Holly</b> · female</span>
+        <span class="voice"><b>Sarah</b> · female</span>
+        <span class="voice"><b>Charlotte</b> · female</span>
+        <span class="voice"><b>Brian</b> · male</span>
+        <span class="voice"><b>George</b> · male</span>
+        <span class="voice"><b>Liam</b> · male</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="commands">
+    <div class="wrap">
+      <h2><span class="accent">Commands</span></h2>
+      <p class="lead">Slash commands, grouped by what they do.</p>
+      <table>
+        <tr><th>Command</th><th>What it does</th></tr>
+        <tr><td><code>/join</code> · <code>/leave</code></td><td class="desc">Bring Echo into your voice channel, or send it away.</td></tr>
+        <tr><td><code>/say</code></td><td class="desc">Speak a one-off message in your voice channel.</td></tr>
+        <tr><td><code>/autoread on</code> · <code>off</code></td><td class="desc">Auto-read a text channel aloud (voice channels' built-in chat works automatically).</td></tr>
+        <tr><td><code>/voice set</code> · <code>list</code> · <code>current</code> · <code>reset</code></td><td class="desc">Choose the server's voice from the six curated picks.</td></tr>
+        <tr><td><code>/myvoice set</code> · <code>current</code> · <code>reset</code></td><td class="desc">Pick your own voice — your messages get read in it.</td></tr>
+        <tr><td><code>/pronounce add</code> · <code>remove</code> · <code>list</code></td><td class="desc">Teach Echo custom pronunciations for names and acronyms.</td></tr>
+        <tr><td><code>/accessibility on</code> · <code>off</code> · <code>status</code></td><td class="desc">Caption voice activity (joins, leaves, mutes) to a text channel.</td></tr>
+        <tr><td><code>/accessibility transcribe</code></td><td class="desc">Live speech-to-text — captions what people say in voice.</td></tr>
+        <tr><td><code>/premium status</code> · <code>subscribe</code> · <code>manage</code></td><td class="desc">Check the tier, upgrade the server, or manage billing.</td></tr>
+        <tr><td><code>/usage</code></td><td class="desc">See this month's usage against the server's allowance.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="a11y">
+        <h2>Built for <span class="accent">everyone</span></h2>
+        <p class="lead" style="margin-bottom:0.75rem">Echo works both directions, so no one's left out of the conversation:</p>
+        <p style="color:var(--text-2)">It <strong style="color:var(--text)">reads text aloud</strong> for members who'd rather listen, and <strong style="color:var(--text)">captions &amp; transcribes voice</strong> into text for hearing-impaired members. Accessibility is <strong style="color:var(--text)">free on every server</strong>, regardless of tier — and live transcription runs on our own hardware, so speech audio never goes to a third party.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <h2><span class="accent">Pricing</span></h2>
+      <p class="lead">One subscription covers a whole server. Accessibility is always free.</p>
+      <div class="tiers">
+        <div class="tier">
+          <div class="name">Free</div>
+          <div class="price">$0</div>
+          <div class="sub">every server</div>
+          <ul>
+            <li>Natural local voices (6 to choose from)</li>
+            <li>Auto-read, /say, per-user voices</li>
+            <li>Link / GIF / attachment announcements</li>
+            <li>Full accessibility: captions + transcription</li>
+            <li>50,000 characters / month</li>
+          </ul>
+        </div>
+        <div class="tier pro">
+          <div class="name">Echo Premium</div>
+          <div class="price">$3<small> / mo · or $30 / yr</small></div>
+          <div class="sub">per server</div>
+          <ul>
+            <li>Everything in Free</li>
+            <li>Ultra-realistic ElevenLabs voices</li>
+            <li>100,000 characters / month</li>
+            <li>Cancel anytime via /premium manage</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Echo · a <a href="/">KitsuneDen</a> bot ·
+      <a href="/echo/terms/">Terms</a> ·
+      <a href="/echo/privacy/">Privacy</a>
+    </div>
+  </footer>
+</body>
+</html>
