@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echo — Privacy Policy · KitsuneDen</title>
+  <meta name="description" content="Privacy policy for Echo, the Discord text-to-speech bot by KitsuneDen." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://kitsuneden.net/echo/privacy/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a24;
+      --border: #2e2e3a;
+      --fox-orange: #f59e0b;
+      --azure: #00E5FF;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      padding: 2rem 1.5rem 6rem;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    header {
+      padding: 2.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-family: 'Saira Stencil One', system-ui, sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.02em;
+      color: var(--fox-orange);
+      margin-bottom: 0.75rem;
+    }
+    .eyebrow {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .effective { color: var(--text-secondary); font-size: 0.95rem; }
+    h2 {
+      font-size: 1.4rem;
+      color: var(--fox-orange);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    p { margin-bottom: 1rem; color: var(--text-secondary); }
+    ul { margin: 0.5rem 0 1.25rem 1.5rem; color: var(--text-secondary); }
+    li { margin-bottom: 0.35rem; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.92em;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--fox-orange);
+    }
+    a {
+      color: var(--azure);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+    }
+    a:hover { border-bottom-color: var(--azure); }
+    .back {
+      display: inline-block;
+      margin-top: 3rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border: none;
+    }
+    .back::before { content: '← '; }
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    footer a { color: var(--text-muted); border: none; }
+    footer a:hover { color: var(--fox-orange); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="eyebrow">Echo · Discord Bot</p>
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective June 28, 2026</p>
+    </header>
+
+    <p>Echo is a Discord text-to-speech bot operated by KitsuneDen (&ldquo;we&rdquo;, &ldquo;us&rdquo;). This policy explains what data Echo handles and why. By adding or using Echo, you accept this policy. It covers the bot specifically; the <a href="/privacy/">Kitsune-Den network privacy policy</a> covers our websites.</p>
+
+    <h2>What Echo processes</h2>
+    <ul>
+      <li><strong>Message content.</strong> In channels Echo is set to read, it converts message text into speech. Text is used only to generate audio and is <strong>not stored</strong> beyond what's described under &ldquo;Caching &amp; retention.&rdquo; Echo ignores messages outside the channels it's configured to read.</li>
+      <li><strong>Voice &amp; presence state.</strong> Echo sees who is in a voice channel so it can join when people are present and leave when it's empty.</li>
+      <li><strong>Identifiers &amp; settings.</strong> Echo stores Discord <strong>server (guild) and user IDs</strong> along with the settings you choose &mdash; selected voices, auto-read channel, pronunciation entries, and tier. These persist so your preferences survive restarts.</li>
+      <li><strong>Payment status.</strong> For Echo Premium we store your server's subscription status and Stripe customer/subscription identifiers. We <strong>never</strong> see or store card numbers.</li>
+    </ul>
+
+    <h2>Third parties</h2>
+    <p>To provide the service, limited data is shared with:</p>
+    <ul>
+      <li><strong>Discord</strong> &mdash; the platform Echo runs on; Discord's own privacy policy applies.</li>
+      <li><strong>ElevenLabs</strong> &mdash; for premium servers, message text is sent to ElevenLabs to synthesize speech. Free servers use a voice engine hosted on our own hardware, so their text is <strong>not</strong> sent to any third party.</li>
+      <li><strong>Stripe</strong> &mdash; processes Echo Premium payments. Card details go directly to Stripe; we do not handle them.</li>
+    </ul>
+    <p>We do <strong>not</strong> sell your data, use message content for anything other than generating speech, or share it beyond the providers listed above.</p>
+
+    <h2>Caching &amp; retention</h2>
+    <ul>
+      <li>Audio for <strong>short, repeated phrases</strong> (e.g. &ldquo;A link&rdquo;) may be cached so identical clips aren't re-generated. Cached audio is keyed to the phrase and voice, not to who said it.</li>
+      <li>Settings are kept until you change them or <strong>remove Echo</strong> from your server, which deletes that server's stored settings.</li>
+      <li>Generated speech is transient &mdash; Echo does not keep a log of conversations.</li>
+    </ul>
+
+    <h2>Your choices</h2>
+    <ul>
+      <li>Change or clear your settings with Echo's <code>/voice</code>, <code>/myvoice</code>, <code>/autoread</code>, and <code>/pronounce</code> commands.</li>
+      <li>Remove Echo from a server to delete that server's stored settings.</li>
+      <li>Request data access or deletion at any time &mdash; see Contact below.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>Echo is intended for users who meet Discord's minimum age requirement (13+, or older where local law requires). It is not directed at children under that age.</p>
+
+    <h2>Changes</h2>
+    <p>We may update this policy; material changes are reflected by the effective date above.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or requests: email <a href="mailto:adainthelab@gmail.com">adainthelab@gmail.com</a> or reach us via the KitsuneDen Discord.</p>
+
+    <a href="/" class="back">Back to KitsuneDen</a>
+
+    <footer>Echo · a KitsuneDen bot · <a href="/echo/terms/">Terms of Service</a></footer>
+  </div>
+</body>
+</html>
