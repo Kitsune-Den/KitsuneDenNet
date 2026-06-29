@@ -113,6 +113,17 @@ export const featured: DenProject = {
 export const projects: DenProject[] = [
   // ── Apps ──────────────────────────────────────────────────
   {
+    name: 'Echo',
+    tagline: 'Reads your Discord chat aloud — with a voice for everyone',
+    description:
+      'A Discord bot that reads chat aloud in voice channels, gives each person their own AI voice, and captions + transcribes speech for hearing-impaired members. Free natural voices for every server; Premium unlocks ultra-realistic ElevenLabs voices.',
+    type: 'deployed',
+    tier: 'gilded',
+    url: 'https://kitsuneden.net/echo/',
+    tags: ['discord', 'tts', 'accessibility', 'bot', 'voice'],
+    section: 'apps',
+  },
+  {
     name: 'Meowademy',
     tagline: 'Real compiled languages, taught with maximum cat energy',
     description:
