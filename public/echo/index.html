@@ -416,13 +416,20 @@
       +'</div></div>';
   }).join('');
 
-  // voice preview (fake): click -> wave for 2.6s
-  var pt;
+  // voice preview: click -> play the real clip (free Kokoro / premium ElevenLabs)
+  var current=null;
   grid.querySelectorAll('[data-voice]').forEach(function(card){
     card.addEventListener('click',function(){
-      grid.querySelectorAll('[data-voice].playing').forEach(function(c){if(c!==card)c.classList.remove('playing');});
+      grid.querySelectorAll('[data-voice].playing').forEach(function(c){c.classList.remove('playing');});
+      if(current){current.pause();current=null;}
+      var name=card.getAttribute('data-voice').toLowerCase();
+      var tier=voices.classList.contains('premium')?'premium':'free';
+      var audio=new Audio('assets/voices/'+name+'-'+tier+'.mp3');
+      current=audio;
       card.classList.add('playing');
-      clearTimeout(pt);pt=setTimeout(function(){card.classList.remove('playing');},2600);
+      audio.play().catch(function(){card.classList.remove('playing');});
+      audio.addEventListener('ended',function(){card.classList.remove('playing');if(current===audio)current=null;});
+      audio.addEventListener('error',function(){card.classList.remove('playing');});
     });
   });
 })();
