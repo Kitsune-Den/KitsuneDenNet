@@ -217,6 +217,18 @@ export const projects: DenProject[] = [
     tags: ['pwa', 'mobile', 'ios', 'android', 'foster-care'],
     section: 'apps',
   },
+  {
+    name: 'Mod Bounty Board',
+    tagline: 'Community-sourced mod bounties for 7 Days to Die',
+    description:
+      'A data-driven board where the community posts and claims 7 Days to Die mod bounties. Static, auto-deployed, backed by a simple bounties.json.',
+    type: 'deployed',
+    tier: 'azure',
+    url: 'https://bb.kitsuneden.net',
+    repo: 'https://github.com/Kitsune-Den/bounty-board',
+    tags: ['7dtd', 'bounties', 'community', 'static-site'],
+    section: 'apps',
+  },
 
   // ── Game Mods ─────────────────────────────────────────────
   // 7 Days to Die mods first; Hytale mods grouped at the bottom of this section.
@@ -361,6 +373,32 @@ export const projects: DenProject[] = [
     url: 'https://github.com/Kitsune-Den/KitsuneZombieReach',
     repo: 'https://github.com/Kitsune-Den/KitsuneZombieReach',
     tags: ['7dtd', 'combat', 'zombies', 'server-side'],
+    section: 'game-mods',
+  },
+  {
+    name: 'KitsunePower',
+    tagline: 'Server-side power-chain retune for 7 Days to Die',
+    description:
+      'Pure-XML rebalance of the solar + generator + battery power chain, built around quality-6 car batteries. Server-side, EAC-safe, no DLL.',
+    type: 'source',
+    tier: 'bronze',
+    version: 'v1.0.2',
+    url: 'https://github.com/Kitsune-Den/KitsunePower',
+    repo: 'https://github.com/Kitsune-Den/KitsunePower',
+    tags: ['7dtd', 'power', 'rebalance', 'server-side'],
+    section: 'game-mods',
+  },
+  {
+    name: 'KitsuneFlora',
+    tagline: 'Japanese-themed trees for 7 Days to Die',
+    description:
+      'Plantable, choppable sakura (cherry blossom) and keyaki (Japanese zelkova) trees. The first documented working pattern for custom-mesh blocks via mod bundle in 7DTD V2.6.',
+    type: 'source',
+    tier: 'azure',
+    version: 'v0.3.9',
+    url: 'https://github.com/Kitsune-Den/KitsuneFlora',
+    repo: 'https://github.com/Kitsune-Den/KitsuneFlora',
+    tags: ['7dtd', 'trees', 'japanese', 'custom-mesh'],
     section: 'game-mods',
   },
 
