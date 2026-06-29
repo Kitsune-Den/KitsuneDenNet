@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echo — Terms of Service · KitsuneDen</title>
+  <meta name="description" content="Terms of Service for Echo, the Discord text-to-speech bot by KitsuneDen." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://kitsuneden.net/echo/terms/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Saira+Stencil+One&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #1a1a24;
+      --border: #2e2e3a;
+      --fox-orange: #f59e0b;
+      --azure: #00E5FF;
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      padding: 2rem 1.5rem 6rem;
+    }
+    .container { max-width: 720px; margin: 0 auto; }
+    header {
+      padding: 2.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-family: 'Saira Stencil One', system-ui, sans-serif;
+      font-size: 2.5rem;
+      letter-spacing: 0.02em;
+      color: var(--fox-orange);
+      margin-bottom: 0.75rem;
+    }
+    .eyebrow {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .effective { color: var(--text-secondary); font-size: 0.95rem; }
+    h2 {
+      font-size: 1.4rem;
+      color: var(--fox-orange);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    p { margin-bottom: 1rem; color: var(--text-secondary); }
+    ul { margin: 0.5rem 0 1.25rem 1.5rem; color: var(--text-secondary); }
+    li { margin-bottom: 0.35rem; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.92em;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--fox-orange);
+    }
+    a {
+      color: var(--azure);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+    }
+    a:hover { border-bottom-color: var(--azure); }
+    .back {
+      display: inline-block;
+      margin-top: 3rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border: none;
+    }
+    .back::before { content: '← '; }
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    footer a { color: var(--text-muted); border: none; }
+    footer a:hover { color: var(--fox-orange); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="eyebrow">Echo · Discord Bot</p>
+      <h1>Terms of Service</h1>
+      <p class="effective">Effective June 28, 2026</p>
+    </header>
+
+    <p>These terms govern your use of Echo, a Discord text-to-speech bot operated by KitsuneDen (&ldquo;we&rdquo;, &ldquo;us&rdquo;). By adding or using Echo, you agree to these terms. See also our <a href="/echo/privacy/">Privacy Policy</a>.</p>
+
+    <h2>The service</h2>
+    <p>Echo joins Discord voice channels and reads text aloud using AI voices. Standard servers use a voice engine we host ourselves; <strong>Echo Premium</strong> servers use higher-quality ElevenLabs voices.</p>
+
+    <h2>Acceptable use</h2>
+    <p>You agree not to use Echo to:</p>
+    <ul>
+      <li>break <a href="https://discord.com/terms" rel="noopener noreferrer">Discord's Terms of Service</a> or Community Guidelines;</li>
+      <li>harass, abuse, or harm others, or generate hateful, illegal, or infringing content;</li>
+      <li>attempt to disrupt, overload, or reverse-engineer the service.</li>
+    </ul>
+    <p>Server administrators are responsible for how Echo is used within their servers.</p>
+
+    <h2>Echo Premium &amp; billing</h2>
+    <ul>
+      <li>Echo Premium is an optional subscription that upgrades an entire <strong>server</strong> to ElevenLabs voices. Pricing is shown at checkout (currently <strong>$3/month</strong> or <strong>$30/year</strong>).</li>
+      <li>Subscriptions are billed through <strong>Stripe</strong> and <strong>renew automatically</strong> until cancelled.</li>
+      <li>You can cancel anytime via the billing portal (<code>/premium manage</code>); access continues through the end of the paid period.</li>
+      <li>Fees are <strong>non-refundable</strong> except where required by law. We may change pricing or features with reasonable notice.</li>
+      <li>Premium depends on third-party services and may be subject to fair-use limits to keep the service sustainable.</li>
+    </ul>
+
+    <h2>Availability &amp; &ldquo;as is&rdquo;</h2>
+    <p>Echo is provided <strong>&ldquo;as is,&rdquo; without warranties</strong> of any kind. We aim for good uptime but do not guarantee uninterrupted or error-free service, and features may change or be discontinued.</p>
+
+    <h2>Limitation of liability</h2>
+    <p>To the fullest extent permitted by law, KitsuneDen is not liable for indirect, incidental, or consequential damages, or for any loss arising from your use of Echo. Our total liability for any claim is limited to the amount you paid us in the 12 months before the claim (if any).</p>
+
+    <h2>Third-party services</h2>
+    <p>Echo relies on Discord, ElevenLabs, and Stripe. Your use is also subject to their terms, and we are not responsible for their services.</p>
+
+    <h2>Termination</h2>
+    <p>We may suspend or remove Echo's access for any server that violates these terms or abuses the service.</p>
+
+    <h2>Changes</h2>
+    <p>We may update these terms; continued use after a change means you accept it. Material changes are reflected by the effective date above.</p>
+
+    <h2>Contact</h2>
+    <p>Questions: email <a href="mailto:adainthelab@gmail.com">adainthelab@gmail.com</a> or reach us via the KitsuneDen Discord.</p>
+
+    <a href="/" class="back">Back to KitsuneDen</a>
+
+    <footer>Echo · a KitsuneDen bot · <a href="/echo/privacy/">Privacy Policy</a></footer>
+  </div>
+</body>
+</html>
