@@ -111,6 +111,7 @@
     <ul>
       <li><strong>Message content.</strong> In channels Echo is set to read, it converts message text into speech. Text is used only to generate audio and is <strong>not stored</strong> beyond what's described under &ldquo;Caching &amp; retention.&rdquo; Echo ignores messages outside the channels it's configured to read.</li>
       <li><strong>Voice &amp; presence state.</strong> Echo sees who is in a voice channel so it can join when people are present and leave when it's empty.</li>
+      <li><strong>Voice audio (transcription).</strong> When a server turns on <code>/accessibility transcribe</code>, Echo processes the audio of people speaking in the voice channel to produce live text captions for hearing-impaired members. Audio is transcribed and <strong>not stored</strong> &mdash; only the resulting text is posted to the captions channel.</li>
       <li><strong>Identifiers &amp; settings.</strong> Echo stores Discord <strong>server (guild) and user IDs</strong> along with the settings you choose &mdash; selected voices, auto-read channel, pronunciation entries, and tier. These persist so your preferences survive restarts.</li>
       <li><strong>Payment status.</strong> For Echo Premium we store your server's subscription status and Stripe customer/subscription identifiers. We <strong>never</strong> see or store card numbers.</li>
     </ul>
@@ -122,7 +123,8 @@
       <li><strong>ElevenLabs</strong> &mdash; for premium servers, message text is sent to ElevenLabs to synthesize speech. Free servers use a voice engine hosted on our own hardware, so their text is <strong>not</strong> sent to any third party.</li>
       <li><strong>Stripe</strong> &mdash; processes Echo Premium payments. Card details go directly to Stripe; we do not handle them.</li>
     </ul>
-    <p>We do <strong>not</strong> sell your data, use message content for anything other than generating speech, or share it beyond the providers listed above.</p>
+    <p>Live transcription runs on our own hardware (a self-hosted Whisper model) &mdash; speech audio is processed there and <strong>not</strong> sent to any third party.</p>
+    <p>We do <strong>not</strong> sell your data, use message content or voice audio for anything other than generating speech and captions, or share it beyond the providers listed above.</p>
 
     <h2>Caching &amp; retention</h2>
     <ul>
@@ -134,6 +136,7 @@
     <h2>Your choices</h2>
     <ul>
       <li>Change or clear your settings with Echo's <code>/voice</code>, <code>/myvoice</code>, <code>/autoread</code>, and <code>/pronounce</code> commands.</li>
+      <li>Server managers control accessibility captions and transcription with <code>/accessibility</code> (off by default).</li>
       <li>Remove Echo from a server to delete that server's stored settings.</li>
       <li>Request data access or deletion at any time &mdash; see Contact below.</li>
     </ul>
