@@ -101,11 +101,10 @@
   });
 
   // Where to read health from. This page is static (kitsuneden.net); the bot
-  // serves /status.json cross-origin (CORS-open). Interim = the Tailscale Funnel;
-  // swap to the bot's permanent URL (echo.kitsuneden.net) once it moves hosts.
+  // serves /status.json cross-origin (CORS-open) from its permanent home.
   var STATUS_URL = new URLSearchParams(location.search).get('src')
     || window.STATUS_JSON_URL
-    || 'https://kodas-hearth.bengal-pomfret.ts.net/status.json';
+    || 'https://echo.kitsuneden.net/status.json';
 
   var OVERALL={
     operational:{text:'All systems operational',cvar:'--ok'},
