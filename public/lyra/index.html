@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lyra — Discord music bot &amp; premium playback · KitsuneDen</title>
+<meta name="description" content="Lyra streams music from YouTube, Spotify, and SoundCloud into your Discord voice channels. Free on every server; Premium unlocks unlimited queue, 24/7 mode, and richer audio.">
+<link rel="icon" href="/favicon.ico">
+<link rel="canonical" href="https://kitsuneden.net/lyra/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kitsuneden.net/lyra/">
+<meta property="og:title" content="Lyra — Discord music bot">
+<meta property="og:description" content="Music from YouTube, Spotify, and SoundCloud, played elegantly. Free on every server; Premium unlocks the rest.">
+<meta property="og:image" content="https://kitsuneden.net/lyra/assets/lyra-hero.jpg">
+<meta property="og:site_name" content="KitsuneDen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lyra — Discord music bot">
+<meta name="twitter:description" content="Music from YouTube, Spotify, and SoundCloud, played elegantly.">
+<meta name="twitter:image" content="https://kitsuneden.net/lyra/assets/lyra-hero.jpg">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#8a6215">
+<meta name="keywords" content="Discord music bot, YouTube, Spotify, SoundCloud, queue, audio filters, 24/7, DJ bot">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Lyra",
+  "applicationCategory": "MusicApplication",
+  "operatingSystem": "Discord",
+  "url": "https://kitsuneden.net/lyra/",
+  "image": "https://kitsuneden.net/lyra/assets/lyra-hero.jpg",
+  "description": "Lyra is a Discord bot that streams music from YouTube, Spotify, and SoundCloud into voice channels, with queue controls, audio filters, and 24/7 mode. Free on every server; Premium unlocks unlimited queue and richer audio.",
+  "author": { "@type": "Organization", "name": "KitsuneDen", "url": "https://kitsuneden.net/" },
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Silver", "price": "2.99", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Gold", "price": "3.99", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Diamond", "price": "6.99", "priceCurrency": "USD" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:light dark}
+  :root{--bg:#f7f2fd;--surface:#ffffff;--surface-alt:#efe6fa;--line:rgba(42,33,64,.1);--line2:rgba(42,33,64,.16);--ink:#2a2140;--sub:#5a5370;--muted:#857d96;--gold:#8a6215;--gold-soft:#7d5a17;--violet:#6f4fc4;--nav:rgba(247,242,253,.82);--code-bg:rgba(42,33,64,.06)}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f0c1a;--surface:#171326;--surface-alt:#1c1730;--line:rgba(233,220,255,.1);--line2:rgba(233,220,255,.16);--ink:#f0ecf8;--sub:#b9b1cf;--muted:#8c84a3;--gold:#c9a24d;--gold-soft:#e0c078;--violet:#a78bfa;--nav:rgba(15,12,26,.82);--code-bg:rgba(255,255,255,.06)}}
+  [data-theme="light"]{--bg:#f7f2fd;--surface:#ffffff;--surface-alt:#efe6fa;--line:rgba(42,33,64,.1);--line2:rgba(42,33,64,.16);--ink:#2a2140;--sub:#5a5370;--muted:#857d96;--gold:#8a6215;--gold-soft:#7d5a17;--violet:#6f4fc4;--nav:rgba(247,242,253,.82);--code-bg:rgba(42,33,64,.06)}
+  [data-theme="dark"]{--bg:#0f0c1a;--surface:#171326;--surface-alt:#1c1730;--line:rgba(233,220,255,.1);--line2:rgba(233,220,255,.16);--ink:#f0ecf8;--sub:#b9b1cf;--muted:#8c84a3;--gold:#c9a24d;--gold-soft:#e0c078;--violet:#a78bfa;--nav:rgba(15,12,26,.82);--code-bg:rgba(255,255,255,.06)}
+  body{margin:0;background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .2s,color .2s}
+  ::selection{background:rgba(138,98,21,.22)}
+  a{color:inherit}
+  code{font-family:'DM Mono',monospace}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes glowpulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.05)}}
+  @keyframes twinkle{0%,100%{opacity:.3}50%{opacity:1}}
+  .navlink:hover{background:var(--line);color:var(--ink)}
+  .themebtn:hover{border-color:var(--gold-soft);color:var(--ink)}
+  .cta-accent:hover{filter:brightness(1.08);transform:translateY(-2px)}
+  .cta-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft)}
+  .card-lift{transition:transform .18s,box-shadow .18s,border-color .18s}
+  .card-lift:hover{transform:translateY(-4px);box-shadow:0 22px 44px -24px rgba(42,33,64,.35);border-color:rgba(138,98,21,.4)}
+  .footlink:hover{color:var(--gold-soft)}
+  .tier-card.featured{border:2px solid var(--gold-soft)}
+</style>
+</head>
+<body>
+<div id="lyra-root" style="--accent:var(--gold-soft);background:var(--bg);color:var(--ink);min-height:100vh;font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif;overflow-x:hidden;position:relative;transition:background .2s,color .2s">
+
+<div style="position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;background-image:radial-gradient(rgba(42,33,64,.045) 1px,transparent 1px);background-size:4px 4px"></div>
+
+<!-- NAV -->
+<nav style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:var(--nav);border-bottom:1px solid var(--line)">
+  <div style="max-width:1180px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit">
+      <img src="assets/lyra-avatar.png" alt="Lyra" style="width:38px;height:38px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line2)">
+      <span style="display:flex;flex-direction:column;line-height:1.05">
+        <span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em">Lyra</span>
+        <span style="font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.02em">by KitsuneDen</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <a class="navlink" href="#features" style="text-decoration:none;color:var(--sub);font-weight:600;font-size:15px;padding:9px 14px;border-radius:10px">Features</a>
+      <a class="navlink" href="#commands" style="text-decoration:none;color:var(--sub);font-weight:600;font-size:15px;padding:9px 14px;border-radius:10px">Commands</a>
+      <a class="navlink" href="#pricing" style="text-decoration:none;color:var(--sub);font-weight:600;font-size:15px;padding:9px 14px;border-radius:10px">Pricing</a>
+      <button id="theme-btn" class="themebtn" aria-label="Switch color theme" type="button" style="display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);color:var(--sub);font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:14px;padding:9px 12px;border-radius:11px;cursor:pointer"><span id="theme-icon" style="font-size:15px;line-height:1">🖥️</span><span id="theme-label">System</span></button>
+      <a class="cta-accent" href="#invite" style="text-decoration:none;margin-left:2px;background:var(--gold-soft);color:#fff;font-weight:700;font-size:15px;padding:11px 20px;border-radius:12px;box-shadow:0 6px 18px -6px var(--gold-soft);transition:filter .15s,transform .15s">Add to Discord</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top" style="position:relative;z-index:2">
+  <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,96px) 26px clamp(40px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:48px;align-items:center">
+    <div>
+      <span style="display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);padding:7px 14px 7px 10px;border-radius:999px;font-size:13px;font-weight:700;color:var(--sub);box-shadow:0 2px 10px -4px rgba(42,33,64,.15)"><span style="font-size:15px">🎼</span> a KitsuneDen bot</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(40px,6vw,70px);line-height:1.05;letter-spacing:-.01em;margin:22px 0 0">Press play,<br>let the night sing.</h1>
+      <p style="font-size:clamp(17px,1.5vw,20px);line-height:1.65;color:var(--sub);max-width:30em;margin:22px 0 0">Lyra streams music from YouTube, Spotify, and SoundCloud into your voice channels &mdash; a queue that just works, elegant audio filters, and 24/7 mode for the servers that never want the music to stop.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:13px;margin-top:32px">
+        <a class="cta-accent" id="invite" href="#" style="text-decoration:none;background:var(--gold-soft);color:#fff;font-weight:700;font-size:16px;padding:15px 26px;border-radius:14px;box-shadow:0 12px 28px -10px var(--gold-soft);transition:filter .15s,transform .15s">Add to Discord</a>
+        <a class="cta-ghost" href="#pricing" style="text-decoration:none;background:var(--surface);color:var(--ink);font-weight:700;font-size:16px;padding:15px 26px;border-radius:14px;border:1px solid var(--line2);transition:border-color .15s,color .15s">See pricing</a>
+      </div>
+      <p style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);font-weight:600;margin-top:22px"><span style="color:#2bb673">●</span> Free on every server <span style="opacity:.4">·</span> Premium unlocks the rest</p>
+    </div>
+    <div style="position:relative;display:flex;justify-content:center;align-items:center;min-height:360px">
+      <div style="position:absolute;width:78%;aspect-ratio:1;border-radius:50%;filter:blur(46px);background:conic-gradient(from 0deg,#c9a24d,#8b6fd4,#6f4fc4,#e0c078,#c9a24d);animation:glowpulse 6s ease-in-out infinite;z-index:0"></div>
+      <img src="assets/lyra-hero.jpg" alt="Lyra, the KitsuneDen fox, playing a golden harp among the stars" style="position:relative;z-index:1;width:min(420px,88%);height:auto;display:block;border-radius:24px;box-shadow:0 26px 50px -14px rgba(42,33,64,.4);animation:floaty 7s ease-in-out infinite">
+      <div style="position:absolute;left:-6px;bottom:18px;z-index:2;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:13px 15px;box-shadow:0 18px 40px -16px rgba(42,33,64,.4);width:230px;animation:floaty 7s ease-in-out infinite;animation-delay:-1.4s">
+        <div style="display:flex;align-items:center;gap:9px">
+          <span style="font-size:15px">🎵</span>
+          <span style="font-weight:700;font-size:13px">Now playing</span>
+          <span style="display:flex;gap:3px;margin-left:auto;height:14px;align-items:flex-end">
+            <span style="width:3px;height:100%;background:var(--gold-soft);border-radius:2px;animation:twinkle .9s ease-in-out infinite"></span>
+            <span style="width:3px;height:70%;background:var(--gold-soft);border-radius:2px;animation:twinkle .9s ease-in-out infinite;animation-delay:-.2s"></span>
+            <span style="width:3px;height:100%;background:var(--gold-soft);border-radius:2px;animation:twinkle .9s ease-in-out infinite;animation-delay:-.4s"></span>
+          </span>
+        </div>
+        <p style="margin:8px 0 0;font-size:13px;color:var(--sub)">Requested by <strong style="color:var(--ink)">maya</strong></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section id="features" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,84px) 26px">
+  <div style="max-width:620px">
+    <span style="font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--gold-soft);letter-spacing:.04em">// what lyra does</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(30px,4vw,44px);letter-spacing:-.01em;line-height:1.1;margin:14px 0 0">Drop it in, queue it up, and go.</h2>
+    <p style="font-size:18px;line-height:1.6;color:var(--sub);margin:16px 0 0">No dashboard, no setup wizard. Just slash commands that feel obvious the first time.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:42px">
+    <div class="card-lift" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px">
+      <div style="width:50px;height:50px;border-radius:14px;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-size:24px">🎶</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:18px 0 0">Streams everywhere</h3>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">YouTube, Spotify, and SoundCloud links all just work &mdash; paste a link or search by name.</p>
+    </div>
+    <div class="card-lift" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px">
+      <div style="width:50px;height:50px;border-radius:14px;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-size:24px">🎚️</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:18px 0 0">Audio filters</h3>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">Bassboost, nightcore, vaporwave, 8D &mdash; shape the sound with <code style="font-size:13px;background:var(--code-bg);padding:1px 6px;border-radius:6px">/filter</code>.</p>
+    </div>
+    <div class="card-lift" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px">
+      <div style="width:50px;height:50px;border-radius:14px;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-size:24px">🔁</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:18px 0 0">A queue that behaves</h3>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">Loop, shuffle, seek, skip &mdash; all the controls a real DJ session needs.</p>
+    </div>
+    <div class="card-lift" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px">
+      <div style="width:50px;height:50px;border-radius:14px;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-size:24px">🌙</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:18px 0 0">24/7 mode</h3>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">Premium keeps Lyra in the channel around the clock, for servers that never stop playing.</p>
+    </div>
+    <div class="card-lift" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px">
+      <div style="width:50px;height:50px;border-radius:14px;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-size:24px">✨</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:18px 0 0">Premium tiers</h3>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">Silver, Gold, and Diamond scale premium across 1, 3, or 6 of your servers at once.</p>
+    </div>
+    <div class="card-lift" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px">
+      <div style="width:50px;height:50px;border-radius:14px;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-size:24px">🛡️</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:18px 0 0">Built to last</h3>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--sub);margin:9px 0 0">Per-server settings, sensible defaults, no dashboard you have to babysit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMMANDS -->
+<section id="commands" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:clamp(20px,3vw,40px) 26px clamp(44px,6vw,88px)">
+  <div style="max-width:560px">
+    <span style="font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--gold-soft);letter-spacing:.04em">// commands</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(30px,4vw,44px);letter-spacing:-.01em;line-height:1.1;margin:14px 0 0">Everything is a slash command.</h2>
+    <p style="font-size:18px;line-height:1.6;color:var(--sub);margin:14px 0 0">Grouped by what they do. No prefixes to remember.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:36px">
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 16px">Playback</h3>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/play</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Search or paste a link &mdash; Lyra joins your channel and starts the queue.</p></div>
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/skip · /pause · /resume · /stop</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">The basics, exactly where you'd expect them.</p></div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 16px">Queue</h3>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/queue · /nowplaying</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">See what's up next, and what's playing right now.</p></div>
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/shuffle · /loop · /seek</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Reorder, repeat, or jump to a moment in the track.</p></div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 16px">Sound</h3>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/volume</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Free servers cap at 100%; Premium goes up to 200%.</p></div>
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/filter</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">bassboost, nightcore, vaporwave, 8d &mdash; Premium.</p></div>
+      </div>
+    </div>
+    <div style="background:linear-gradient(160deg,var(--surface),rgba(138,98,21,.10));border:1px solid rgba(138,98,21,.28);border-radius:20px;padding:24px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--gold-soft);margin:0 0 16px">Always on</h3>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/247</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Keep Lyra connected around the clock &mdash; Premium.</p></div>
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/autoplay</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Related tracks keep playing once the queue runs dry.</p></div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 16px">Premium</h3>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/premium subscribe · status</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Check the tier, or get a link to upgrade a server.</p></div>
+        <div><code style="font-size:14px;color:var(--gold-soft);font-weight:500">/premium activate · deactivate</code><p style="margin:5px 0 0;font-size:14.5px;color:var(--sub);line-height:1.5">Assign or free up a premium slot for this server.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="position:relative;z-index:2;background:var(--surface-alt)">
+  <div style="max-width:1100px;margin:0 auto;padding:clamp(44px,6vw,88px) 26px">
+    <div style="text-align:center;max-width:560px;margin:0 auto">
+      <span style="font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--gold-soft);letter-spacing:.04em">// pricing</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(30px,4vw,44px);letter-spacing:-.01em;line-height:1.1;margin:14px 0 0">One tier per server, elegantly scaled.</h2>
+      <p style="font-size:18px;line-height:1.6;color:var(--sub);margin:14px 0 0">Free covers the essentials. Premium scales across as many servers as you need.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:42px;align-items:stretch">
+      <div class="tier-card" style="background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column">
+        <div style="font-weight:700;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Free</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:12px"><span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:40px;letter-spacing:-.02em">$0</span></div>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;flex:1;font-size:14.5px">
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> YouTube, Spotify, SoundCloud</li>
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Queue up to 750 tracks</li>
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Loop, shuffle, skip</li>
+        </ul>
+        <a class="cta-ghost" href="#invite" style="text-decoration:none;text-align:center;margin-top:24px;background:var(--surface);color:var(--ink);font-weight:700;font-size:15px;padding:13px;border-radius:13px;border:1px solid var(--line2)">Add Lyra free</a>
+      </div>
+      <div class="tier-card" style="background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column">
+        <div style="font-weight:700;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Silver</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:12px"><span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:40px;letter-spacing:-.02em">$2.99</span><span style="font-size:14px;color:var(--muted)">/mo</span></div>
+        <p style="font-size:13.5px;color:var(--muted);margin:6px 0 0">1 server</p>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;flex:1;font-size:14.5px">
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Everything in Free</li>
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Unlimited queue</li>
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> 24/7 mode, all filters</li>
+        </ul>
+        <a class="cta-ghost" href="#invite" style="text-decoration:none;text-align:center;margin-top:24px;background:var(--surface);color:var(--ink);font-weight:700;font-size:15px;padding:13px;border-radius:13px;border:1px solid var(--line2)">Get Silver</a>
+      </div>
+      <div class="tier-card featured" style="position:relative;background:var(--surface);border-radius:22px;padding:28px;display:flex;flex-direction:column">
+        <span style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold-soft);color:#fff;font-size:11px;font-weight:800;padding:4px 12px;border-radius:999px;letter-spacing:.03em">MOST POPULAR</span>
+        <div style="font-weight:700;font-size:14px;color:var(--gold-soft);text-transform:uppercase;letter-spacing:.06em">Gold</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:12px"><span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:40px;letter-spacing:-.02em">$3.99</span><span style="font-size:14px;color:var(--muted)">/mo</span></div>
+        <p style="font-size:13.5px;color:var(--muted);margin:6px 0 0">3 servers</p>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;flex:1;font-size:14.5px">
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Everything in Silver</li>
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Spread across 3 servers</li>
+        </ul>
+        <a class="cta-accent" href="#invite" style="text-decoration:none;text-align:center;margin-top:24px;background:var(--gold-soft);color:#fff;font-weight:700;font-size:15px;padding:13px;border-radius:13px;box-shadow:0 10px 24px -10px var(--gold-soft)">Get Gold</a>
+      </div>
+      <div class="tier-card" style="background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column">
+        <div style="font-weight:700;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Diamond</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:12px"><span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:40px;letter-spacing:-.02em">$6.99</span><span style="font-size:14px;color:var(--muted)">/mo</span></div>
+        <p style="font-size:13.5px;color:var(--muted);margin:6px 0 0">6 servers</p>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;flex:1;font-size:14.5px">
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Everything in Gold</li>
+          <li style="display:flex;gap:9px;color:var(--ink)"><span style="color:#2bb673;font-weight:800">✓</span> Spread across 6 servers</li>
+        </ul>
+        <a class="cta-ghost" href="#invite" style="text-decoration:none;text-align:center;margin-top:24px;background:var(--surface);color:var(--ink);font-weight:700;font-size:15px;padding:13px;border-radius:13px;border:1px solid var(--line2)">Get Diamond</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<footer style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,84px) 26px clamp(36px,4vw,52px);text-align:center">
+  <img src="assets/lyra-avatar.png" alt="Lyra" style="width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto;display:block;box-shadow:0 0 0 1px var(--line2)">
+  <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(28px,4vw,42px);letter-spacing:-.01em;line-height:1.1;margin:20px 0 0">Bring the music to your server.</h2>
+  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:13px;margin-top:26px">
+    <a class="cta-accent" href="#invite" style="text-decoration:none;background:var(--gold-soft);color:#fff;font-weight:700;font-size:16px;padding:15px 28px;border-radius:14px;box-shadow:0 12px 28px -10px var(--gold-soft)">Add to Discord</a>
+    <a class="cta-ghost" href="#commands" style="text-decoration:none;background:var(--surface);color:var(--ink);font-weight:700;font-size:16px;padding:15px 28px;border-radius:14px;border:1px solid var(--line2)">Browse commands</a>
+  </div>
+  <div style="margin-top:48px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;font-size:14px;color:var(--muted);font-weight:600">
+    <span>🦊 Lyra · a <a href="/" style="color:var(--sub);text-decoration:underline;text-underline-offset:2px">KitsuneDen</a> bot</span>
+    <span style="opacity:.4">·</span>
+    <a class="footlink" href="/lyra/terms/" style="color:var(--sub);text-decoration:none">Terms</a>
+    <a class="footlink" href="/lyra/privacy/" style="color:var(--sub);text-decoration:none">Privacy</a>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var order=['system','light','dark'];
+  var theme='system';
+  try{var t=localStorage.getItem('lyra-theme');if(t==='light'||t==='dark'||t==='system')theme=t;}catch(e){}
+  function applyTheme(){
+    if(theme==='system')root.removeAttribute('data-theme');else root.setAttribute('data-theme',theme);
+    document.getElementById('theme-icon').textContent=theme==='light'?'☀️':theme==='dark'?'🌙':'🖥️';
+    document.getElementById('theme-label').textContent=theme.charAt(0).toUpperCase()+theme.slice(1);
+  }
+  applyTheme();
+  document.getElementById('theme-btn').addEventListener('click',function(){
+    theme=order[(order.indexOf(theme)+1)%3];
+    try{localStorage.setItem('lyra-theme',theme);}catch(e){}
+    applyTheme();
+  });
+})();
+</script>
+</body>
+</html>
