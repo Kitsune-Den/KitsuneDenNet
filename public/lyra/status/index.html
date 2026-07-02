@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lyra — Status · KitsuneDen</title>
+<meta name="description" content="Live health of Lyra, the KitsuneDen Discord music bot: gateway, Lavalink, and database.">
+<link rel="icon" href="/favicon.ico">
+<link rel="canonical" href="https://kitsuneden.net/lyra/status/">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#8a6215">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;color-scheme:light dark}
+  :root{--bg:#f7f2fd;--surface:#ffffff;--surface-alt:#efe6fa;--line:rgba(42,33,64,.1);--line2:rgba(42,33,64,.16);--ink:#2a2140;--sub:#5a5370;--muted:#857d96;--gold:#8a6215;--gold-soft:#7d5a17;--violet:#6f4fc4;--nav:rgba(247,242,253,.82);--code-bg:rgba(42,33,64,.06);--ok:#2bb673;--warn:#e0a400;--down:#e0556b}
+  @media (prefers-color-scheme:dark){:root{--bg:#0f0c1a;--surface:#171326;--surface-alt:#1c1730;--line:rgba(233,220,255,.1);--line2:rgba(233,220,255,.16);--ink:#f0ecf8;--sub:#b9b1cf;--muted:#8c84a3;--gold:#c9a24d;--gold-soft:#e0c078;--violet:#a78bfa;--nav:rgba(15,12,26,.82);--code-bg:rgba(255,255,255,.06);--ok:#3ad98c;--warn:#f5c24a;--down:#ff7089}}
+  [data-theme="light"]{--bg:#f7f2fd;--surface:#ffffff;--surface-alt:#efe6fa;--line:rgba(42,33,64,.1);--line2:rgba(42,33,64,.16);--ink:#2a2140;--sub:#5a5370;--muted:#857d96;--gold:#8a6215;--gold-soft:#7d5a17;--violet:#6f4fc4;--nav:rgba(247,242,253,.82);--code-bg:rgba(42,33,64,.06);--ok:#2bb673;--warn:#e0a400;--down:#e0556b}
+  [data-theme="dark"]{--bg:#0f0c1a;--surface:#171326;--surface-alt:#1c1730;--line:rgba(233,220,255,.1);--line2:rgba(233,220,255,.16);--ink:#f0ecf8;--sub:#b9b1cf;--muted:#8c84a3;--gold:#c9a24d;--gold-soft:#e0c078;--violet:#a78bfa;--nav:rgba(15,12,26,.82);--code-bg:rgba(255,255,255,.06);--ok:#3ad98c;--warn:#f5c24a;--down:#ff7089}
+  body{margin:0;background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background .3s;font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif;color:var(--ink)}
+  a{color:inherit}
+  code{font-family:'DM Mono',monospace}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .navlink:hover{background:var(--line);color:var(--ink)}
+  .themebtn:hover{border-color:var(--gold-soft);color:var(--ink)}
+  .footlink:hover{color:var(--gold-soft)}
+</style>
+</head>
+<body>
+<div id="lyra-root" style="--accent:var(--gold-soft);min-height:100vh;position:relative">
+<div style="position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;background-image:radial-gradient(rgba(42,33,64,.045) 1px,transparent 1px);background-size:4px 4px"></div>
+
+<!-- NAV -->
+<nav style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:var(--nav);border-bottom:1px solid var(--line)">
+  <div style="max-width:900px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <a href="/lyra/" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit">
+      <img src="/lyra/assets/lyra-avatar.png" alt="Lyra" style="width:38px;height:38px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line2)">
+      <span style="display:flex;flex-direction:column;line-height:1.05">
+        <span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;letter-spacing:-.01em">Lyra</span>
+        <span style="font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.02em">by KitsuneDen</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <a class="navlink" href="/lyra/" style="text-decoration:none;color:var(--sub);font-weight:600;font-size:15px;padding:9px 14px;border-radius:10px">← Back to Lyra</a>
+      <button id="theme-btn" class="themebtn" aria-label="Switch color theme" type="button" style="display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--line);color:var(--sub);font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:14px;padding:9px 12px;border-radius:11px;cursor:pointer"><span id="theme-icon" style="font-size:15px;line-height:1">🖥️</span><span id="theme-label">System</span></button>
+    </div>
+  </div>
+</nav>
+
+<main style="position:relative;z-index:2;max-width:900px;margin:0 auto;padding:clamp(36px,6vw,72px) 26px 64px">
+  <span style="font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--gold-soft);letter-spacing:.04em">// system status</span>
+  <h1 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(34px,4.5vw,50px);letter-spacing:-.01em;line-height:1.05;margin:12px 0 0">Lyra Status</h1>
+  <p style="font-size:17px;line-height:1.6;color:var(--sub);margin:12px 0 0;max-width:36em">Live health of the bot gateway, Lavalink, and the database. This page refreshes every few seconds.</p>
+
+  <!-- OVERALL BANNER -->
+  <div id="banner" style="margin-top:30px;border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:22px 24px;display:flex;align-items:center;gap:15px;box-shadow:0 12px 34px -22px rgba(42,33,64,.4)">
+    <span id="banner-dot" style="width:13px;height:13px;border-radius:50%;flex:none;background:var(--muted);animation:pulse 2s infinite"></span>
+    <span id="banner-text" style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:19px;letter-spacing:-.01em">Loading live status…</span>
+  </div>
+
+  <!-- METRIC TILES -->
+  <div id="metrics" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-top:22px"></div>
+
+  <!-- COMPONENTS -->
+  <div style="margin-top:30px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 14px">Components</h2>
+    <div id="components" style="background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden"></div>
+  </div>
+
+  <p id="stamp" style="text-align:center;color:var(--muted);font-size:13px;margin-top:22px"></p>
+
+  <!-- FOOTER -->
+  <div style="margin-top:44px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;font-size:14px;color:var(--muted);font-weight:600">
+    <span>🦊 Lyra · a <a class="footlink" href="/" style="color:var(--sub);text-decoration:underline;text-underline-offset:2px">KitsuneDen</a> bot</span>
+    <span style="opacity:.4">·</span>
+    <a class="footlink" href="/lyra/terms/" style="color:var(--sub);text-decoration:none">Terms</a>
+    <a class="footlink" href="/lyra/privacy/" style="color:var(--sub);text-decoration:none">Privacy</a>
+  </div>
+</main>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('lyra-root');
+  var order=['system','light','dark'];
+  var theme='system';
+  try{var t=localStorage.getItem('lyra-theme');if(t==='light'||t==='dark'||t==='system')theme=t;}catch(e){}
+  function applyTheme(){
+    if(theme==='system')root.removeAttribute('data-theme');else root.setAttribute('data-theme',theme);
+    document.getElementById('theme-icon').textContent=theme==='light'?'☀️':theme==='dark'?'🌙':'🖥️';
+    document.getElementById('theme-label').textContent=theme.charAt(0).toUpperCase()+theme.slice(1);
+  }
+  applyTheme();
+  document.getElementById('theme-btn').addEventListener('click',function(){
+    theme=order[(order.indexOf(theme)+1)%3];
+    try{localStorage.setItem('lyra-theme',theme);}catch(e){}
+    applyTheme();
+  });
+
+  // Where to read health from. This page is static (kitsuneden.net); the bot
+  // serves /status.json cross-origin (CORS-open) from its permanent home.
+  var STATUS_URL = new URLSearchParams(location.search).get('src')
+    || window.STATUS_JSON_URL
+    || 'https://lyra.kitsuneden.net/status.json';
+
+  var OVERALL={
+    operational:{text:'All systems operational',cvar:'--ok'},
+    degraded:{text:'Partial outage',cvar:'--warn'},
+    down:{text:'Major outage',cvar:'--down'}
+  };
+  var COMP={
+    operational:{label:'Operational',cvar:'--ok'},
+    degraded:{label:'Degraded',cvar:'--warn'},
+    down:{label:'Down',cvar:'--down'}
+  };
+  function cssv(v){return getComputedStyle(root).getPropertyValue(v).trim()||'#888';}
+
+  function fmtUptime(s){
+    var d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);
+    if(d)return d+'d '+h+'h'; if(h)return h+'h '+m+'m'; return m+'m';
+  }
+  function tile(k,v){
+    return '<div style="background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 17px">'
+      +'<div style="color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:700">'+k+'</div>'
+      +'<div style="font-family:\'Cormorant Garamond\',serif;font-size:25px;font-weight:700;margin-top:5px;letter-spacing:-.01em">'+v+'</div></div>';
+  }
+
+  async function refresh(){
+    try{
+      var r=await fetch(STATUS_URL,{cache:'no-store'});
+      var d=await r.json();
+      var o=OVERALL[d.overall]||OVERALL.down;
+      document.getElementById('banner-text').textContent=o.text;
+      document.getElementById('banner-text').style.color=cssv(o.cvar);
+      document.getElementById('banner-dot').style.background=cssv(o.cvar);
+
+      var m=d.metrics||{};
+      document.getElementById('metrics').innerHTML=[
+        tile('Uptime',fmtUptime(m.uptime_seconds||0)),
+        tile('Latency',m.latency_ms==null?'—':m.latency_ms+' ms'),
+        tile('Servers',m.servers==null?'—':m.servers),
+        tile('In voice',m.voice_connections==null?'—':m.voice_connections),
+        tile('Premium',m.premium_servers==null?'—':m.premium_servers)
+      ].join('');
+
+      document.getElementById('components').innerHTML=(d.components||[]).map(function(c,i){
+        var s=COMP[c.status]||COMP.down;
+        return '<div style="display:flex;align-items:center;gap:13px;padding:16px 18px;'+(i?'border-top:1px solid var(--line)':'')+'">'
+          +'<span style="width:11px;height:11px;border-radius:50%;flex:none;background:'+cssv(s.cvar)+'"></span>'
+          +'<span style="flex:1;font-weight:600">'+c.name+'</span>'
+          +'<span style="color:var(--muted);font-size:13px">'+(c.detail||'')+'</span>'
+          +'<span style="font-size:13px;font-weight:700;color:'+cssv(s.cvar)+'">'+s.label+'</span></div>';
+      }).join('');
+
+      var when=new Date((d.updated_at||0)*1000);
+      document.getElementById('stamp').textContent='Last updated '+when.toLocaleTimeString();
+    }catch(e){
+      document.getElementById('banner-text').textContent='Status unavailable';
+      document.getElementById('banner-text').style.color=cssv('--down');
+      document.getElementById('banner-dot').style.background=cssv('--down');
+      document.getElementById('stamp').textContent='Could not reach the status endpoint.';
+    }
+  }
+  refresh();
+  setInterval(refresh,5000);
+})();
+</script>
+</body>
+</html>
