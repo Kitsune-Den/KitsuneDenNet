@@ -116,11 +116,11 @@ export const projects: DenProject[] = [
     name: 'Echo',
     tagline: 'Reads your Discord chat aloud — with a voice for everyone',
     description:
-      'A Discord bot that reads chat aloud in voice channels, gives each person their own AI voice, and captions + transcribes speech for hearing-impaired members. Free natural voices for every server; Premium unlocks ultra-realistic ElevenLabs voices.',
+      'A Discord bot that reads chat aloud in voice channels, gives each person their own AI voice, and captions + transcribes speech in 90+ languages for hearing-impaired members. Free natural voices for every server; Premium unlocks ultra-realistic ElevenLabs voices.',
     type: 'deployed',
     tier: 'gilded',
     url: 'https://kitsuneden.net/echo/',
-    tags: ['discord', 'tts', 'accessibility', 'bot', 'voice'],
+    tags: ['discord', 'tts', 'accessibility', 'multilingual', 'bot', 'voice'],
     section: 'apps',
   },
   {
