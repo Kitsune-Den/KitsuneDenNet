@@ -102,7 +102,7 @@
     <header>
       <p class="eyebrow">Echo · Discord Bot</p>
       <h1>Privacy Policy</h1>
-      <p class="effective">Effective June 28, 2026</p>
+      <p class="effective">Effective July 24, 2026</p>
     </header>
 
     <p>Echo is a Discord text-to-speech bot operated by KitsuneDen (&ldquo;we&rdquo;, &ldquo;us&rdquo;). This policy explains what data Echo handles and why. By adding or using Echo, you accept this policy. It covers the bot specifically; the <a href="/privacy/">Kitsune-Den network privacy policy</a> covers our websites.</p>
@@ -111,7 +111,8 @@
     <ul>
       <li><strong>Message content.</strong> In channels Echo is set to read, it converts message text into speech. Text is used only to generate audio and is <strong>not stored</strong> beyond what's described under &ldquo;Caching &amp; retention.&rdquo; Echo ignores messages outside the channels it's configured to read.</li>
       <li><strong>Voice &amp; presence state.</strong> Echo sees who is in a voice channel so it can join when people are present and leave when it's empty.</li>
-      <li><strong>Voice audio (transcription).</strong> When a server turns on <code>/accessibility transcribe</code>, Echo processes the audio of people speaking in the voice channel to produce live text captions for hearing-impaired members. Audio is transcribed and <strong>not stored</strong> &mdash; only the resulting text is posted to the captions channel.</li>
+      <li><strong>Voice audio (transcription).</strong> When a server turns on <code>/accessibility transcribe</code>, Echo processes the audio of people speaking in the voice channel to produce live text captions for hearing-impaired members. Speech is transcribed in whatever language is spoken (detected automatically); utterances Echo can't confidently identify are dropped rather than guessed. Audio is transcribed in memory and <strong>not stored</strong> &mdash; only the resulting text is posted to the captions channel.</li>
+      <li><strong>Meeting transcripts (<code>/meeting</code>).</strong> When someone starts a meeting, Echo announces visibly in the channel that it is recording, transcribes the conversation, and posts a single transcript file when the meeting stops. The transcript is assembled <strong>in memory</strong> and uploaded straight to Discord &mdash; neither the audio nor the transcript is written to disk or retained on our side. The only copy is the one in your channel.</li>
       <li><strong>Identifiers &amp; settings.</strong> Echo stores Discord <strong>server (guild) and user IDs</strong> along with the settings you choose &mdash; selected voices, auto-read channel, pronunciation entries, and tier. These persist so your preferences survive restarts.</li>
       <li><strong>Payment status.</strong> For Echo Premium we store your server's subscription status and Stripe customer/subscription identifiers. We <strong>never</strong> see or store card numbers.</li>
     </ul>
@@ -131,6 +132,7 @@
       <li>Audio for <strong>short, repeated phrases</strong> (e.g. &ldquo;A link&rdquo;) may be cached so identical clips aren't re-generated. Cached audio is keyed to the phrase and voice, not to who said it.</li>
       <li>Settings are kept until you change them or <strong>remove Echo</strong> from your server, which deletes that server's stored settings.</li>
       <li>Generated speech is transient &mdash; Echo does not keep a log of conversations.</li>
+      <li>Captions and meeting transcripts are <strong>never retained by us</strong>. They are posted to your Discord channel and exist only there; deleting them there deletes the only copy.</li>
     </ul>
 
     <h2>Your choices</h2>
