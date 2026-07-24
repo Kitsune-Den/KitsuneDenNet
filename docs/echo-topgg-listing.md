@@ -48,7 +48,8 @@ people who need to read along. Same conversation, everyone in it.
 ## 📝 Meeting transcripts
 `/meeting start` records a voice conversation and hands back **one timestamped
 transcript file** when you stop. It announces itself out loud when recording
-starts — no silent listening.
+starts — no silent listening. Want control over who can hit record? Gate it
+behind a role with `/meeting role set`.
 
 ## 🫧 Nothing is stored
 No conversation logs, no saved recordings, no transcript archive. Captions and
