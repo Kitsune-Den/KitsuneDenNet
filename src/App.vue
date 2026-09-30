@@ -115,7 +115,7 @@ const projectsBySection = computed(() => {
           target="_blank"
           rel="noopener noreferrer"
           title="Join the KitsuneDen @ Good Times Discord"
-          class="group block overflow-hidden rounded-2xl border border-purple-500/30 shadow-[0_0_60px_rgba(168,85,247,0.15)] transition-all duration-300 hover:border-purple-400/60 hover:shadow-[0_0_80px_rgba(168,85,247,0.35)]"
+          class="group block overflow-hidden mx-auto max-w-[600px] rounded-2xl border border-purple-500/30 shadow-[0_0_60px_rgba(168,85,247,0.15)] transition-all duration-300 hover:border-purple-400/60 hover:shadow-[0_0_80px_rgba(168,85,247,0.35)]"
         >
           <img
             :src="discordBannerImg"
