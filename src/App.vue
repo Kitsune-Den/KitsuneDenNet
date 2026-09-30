@@ -6,6 +6,7 @@ import FeaturedProject from './components/FeaturedProject.vue'
 import EmptyDen from './components/EmptyDen.vue'
 import heroImg from './assets/hero.webp'
 import logoImg from './assets/logo.webp'
+import discordBannerImg from './assets/discord-banner.webp'
 
 const artifactCount = computed(() => projects.length + 1) // +1 for featured
 
@@ -45,6 +46,14 @@ const projectsBySection = computed(() => {
           <h1 class="font-display text-5xl md:text-6xl tracking-wide">
             <span class="text-tier-gilded">Kitsune</span><span class="text-text-primary">Den</span>
           </h1>
+        </div>
+
+        <!-- Compatibility pill ~ bump the text when a new game version is verified. -->
+        <div class="mb-5 flex justify-center">
+          <span class="inline-flex items-center gap-2 rounded-full border border-fox-orange/40 bg-fox-orange/10 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-fox-warm">
+            <span class="h-1.5 w-1.5 rounded-full bg-fox-orange animate-pulse" aria-hidden="true" />
+            Paint &amp; Prints tools updated for 7DTD V3.3 experimental
+          </span>
         </div>
 
         <p class="text-text-secondary text-lg max-w-xl mx-auto mb-4">
@@ -97,6 +106,35 @@ const projectsBySection = computed(() => {
       <!-- Empty state -->
       <EmptyDen v-else />
     </main>
+
+    <!-- Discord callout -->
+    <section class="border-t border-den-border">
+      <div class="mx-auto max-w-5xl px-6 py-14">
+        <a
+          href="https://goodtimes.gg/discord"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Join the KitsuneDen @ Good Times Discord"
+          class="group block overflow-hidden rounded-2xl border border-purple-500/30 shadow-[0_0_60px_rgba(168,85,247,0.15)] transition-all duration-300 hover:border-purple-400/60 hover:shadow-[0_0_80px_rgba(168,85,247,0.35)]"
+        >
+          <img
+            :src="discordBannerImg"
+            alt="Join our Discord ~ KitsuneDen @ Good Times. Come say hi, hang out in voice chat, and ask for modding help, tool tips, and community advice"
+            loading="lazy"
+            class="w-full object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+          />
+        </a>
+        <p class="mt-3 text-center text-xs text-text-muted">
+          Questions about a mod, or something you built with one?
+          <a
+            href="https://goodtimes.gg/discord"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-purple-400 transition-colors hover:text-purple-300"
+          >Drop into the Den</a>.
+        </p>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="border-t border-den-border mt-auto">
