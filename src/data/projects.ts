@@ -124,6 +124,17 @@ export const projects: DenProject[] = [
     section: 'apps',
   },
   {
+    name: 'Void Sluice',
+    tagline: 'No port forwarding, ever ~ a WireGuard relay for game servers',
+    description:
+      'Your server dials out to a relay node, players join a public address, and you never touch your router. Double NAT and CGNAT stop being your problem. Your server keeps its own private key; the relay only ever sees the public half. Free to try with your friends: one server, 2 GB a day.',
+    type: 'deployed',
+    tier: 'gilded',
+    url: 'https://voidsluice.com',
+    tags: ['wireguard', 'game-servers', 'networking', 'cgnat', 'relay'],
+    section: 'apps',
+  },
+  {
     name: 'Meowademy',
     tagline: 'Real compiled languages, taught with maximum cat energy',
     description:
