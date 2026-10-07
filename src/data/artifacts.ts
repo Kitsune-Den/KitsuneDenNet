@@ -200,6 +200,34 @@ export const artifacts: Artifact[] = [
     links: { open: 'https://meowademy.com', source: gh('AdaInTheLab/meowademy') },
   },
   {
+    slug: 'kitsunepaint',
+    // was also listed as the "KitsuneDen Paint" app, for the hosted web tool
+    formerSlugs: ['kitsuneden-paint'],
+    name: 'KitsunePaint',
+    room: 'apps',
+    tier: 'azure',
+    version: 'v1.8.0',
+    game: '7dtd',
+    tagline: 'Build custom paint packs for 7 Days to Die ~ no Unity required',
+    description:
+      'A web tool at paint.kitsuneden.net: drag-and-drop texture upload, real-time wall tiling preview, and one-click modlet generation. A Python bundle builder converts textures into Unity asset bundles so you never have to open Unity yourself.',
+    tags: ['7dtd', 'paint', 'textures', 'web-tool'],
+    links: { open: 'https://paint.kitsuneden.net', source: gh('Kitsune-Den/KitsunePaint'), nexus: nexus(10021) },
+    detail: {
+      installNote: 'KitsunePaint builds the paint pack, and the pack is what goes in `Mods/`. Packs work on both V2.x and V3.x.',
+      install: [
+        'Open paint.kitsuneden.net, drop in your textures, check the tiling preview, and download the modlet zip.',
+        'Install Python, then run `pip install UnityPy Pillow`.',
+        'Build the asset bundles with `python scripts/build_bundle.py "path/to/your/modlet/Resources"`. No Unity needed.',
+        'Install OCBCustomTextures (v0.8.0+) on the server and every client, with EAC off.',
+        'Drop your finished modlet into `Mods/` on the server and every client.',
+      ],
+      requires: 'OCBCustomTextures v0.8.0+ · EAC off',
+      related: ['kitsunepaintunlocked', 'kitsuneden-prints', 'kitsunecommand'],
+      mantel: [{ title: 'Mod of the Week', text: 'Picked as Mod of the Week — no Unity required.' }],
+    },
+  },
+  {
     slug: 'kitsuneden-prints',
     name: 'KitsuneDen Prints',
     room: 'apps',
@@ -409,33 +437,6 @@ export const artifacts: Artifact[] = [
         "Check it's listed in the in-game Mods menu.",
       ],
       requires: 'EAC off',
-    },
-  },
-  {
-    slug: 'kitsunepaint',
-    // was also listed as the "KitsuneDen Paint" app, for the hosted web tool
-    formerSlugs: ['kitsuneden-paint'],
-    name: 'KitsunePaint',
-    room: 'mods',
-    tier: 'azure',
-    version: 'v1.8.0',
-    game: '7dtd',
-    tagline: 'Build custom paint packs for 7 Days to Die ~ no Unity required',
-    description:
-      'A web tool at paint.kitsuneden.net: drag-and-drop texture upload, real-time wall tiling preview, and one-click modlet generation. A Python bundle builder converts textures into Unity asset bundles so you never have to open Unity yourself.',
-    tags: ['7dtd', 'paint', 'textures', 'web-tool'],
-    links: { open: 'https://paint.kitsuneden.net', source: gh('Kitsune-Den/KitsunePaint'), nexus: nexus(10021) },
-    detail: {
-      installNote: 'KitsunePaint builds the paint pack, and the pack is what goes in `Mods/`. Packs work on both V2.x and V3.x.',
-      install: [
-        'Open paint.kitsuneden.net, drop in your textures, check the tiling preview, and download the modlet zip.',
-        'Install Python, then run `pip install UnityPy Pillow`.',
-        'Build the asset bundles with `python scripts/build_bundle.py "path/to/your/modlet/Resources"`. No Unity needed.',
-        'Install OCBCustomTextures (v0.8.0+) on the server and every client, with EAC off.',
-        'Drop your finished modlet into `Mods/` on the server and every client.',
-      ],
-      requires: 'OCBCustomTextures v0.8.0+ · EAC off',
-      mantel: [{ title: 'Mod of the Week', text: 'Picked as Mod of the Week — no Unity required.' }],
     },
   },
   {
