@@ -59,6 +59,8 @@ export interface ArtifactDetail {
 export interface Artifact {
   /** URL-safe id ~ the page lives at /artifacts/<slug>/ */
   slug: string
+  /** Old slugs whose pages now redirect here, e.g. after two entries merge */
+  formerSlugs?: string[]
   name: string
   room: Room
   tier: Tier
@@ -196,21 +198,6 @@ export const artifacts: Artifact[] = [
       'Interactive lolrust lessons, full language reference docs, and a browser-based transpiler playground. Designed for newcomers and Rust devs alike.',
     tags: ['lolrust', 'esolang', 'astro', 'learn-to-code', 'tutorial'],
     links: { open: 'https://meowademy.com', source: gh('AdaInTheLab/meowademy') },
-  },
-  {
-    slug: 'kitsuneden-paint',
-    name: 'KitsuneDen Paint',
-    room: 'apps',
-    tier: 'gilded',
-    game: '7dtd',
-    tagline: 'Custom paint pack creator for 7 Days to Die',
-    description:
-      'The web side of KitsunePaint. Drop in your textures, preview how they tile on a wall, and download a ready-to-install modlet. No Unity required.',
-    tags: ['7dtd', 'paint', 'textures', 'web-tool'],
-    links: { open: 'https://paint.kitsuneden.net', source: gh('Kitsune-Den/KitsunePaint') },
-    detail: {
-      related: ['kitsunepaint', 'kitsunepaintunlocked', 'kitsuneden-prints'],
-    },
   },
   {
     slug: 'kitsuneden-prints',
@@ -426,6 +413,8 @@ export const artifacts: Artifact[] = [
   },
   {
     slug: 'kitsunepaint',
+    // was also listed as the "KitsuneDen Paint" app, for the hosted web tool
+    formerSlugs: ['kitsuneden-paint'],
     name: 'KitsunePaint',
     room: 'mods',
     tier: 'azure',
@@ -433,9 +422,9 @@ export const artifacts: Artifact[] = [
     game: '7dtd',
     tagline: 'Build custom paint packs for 7 Days to Die ~ no Unity required',
     description:
-      'Drag-and-drop texture upload, real-time wall tiling preview, and one-click modlet generation. A Python bundle builder converts textures into Unity asset bundles so you never have to open Unity yourself.',
+      'A web tool at paint.kitsuneden.net: drag-and-drop texture upload, real-time wall tiling preview, and one-click modlet generation. A Python bundle builder converts textures into Unity asset bundles so you never have to open Unity yourself.',
     tags: ['7dtd', 'paint', 'textures', 'web-tool'],
-    links: { source: gh('Kitsune-Den/KitsunePaint'), nexus: nexus(10021) },
+    links: { open: 'https://paint.kitsuneden.net', source: gh('Kitsune-Den/KitsunePaint'), nexus: nexus(10021) },
     detail: {
       installNote: 'KitsunePaint builds the paint pack, and the pack is what goes in `Mods/`. Packs work on both V2.x and V3.x.',
       install: [
@@ -777,6 +766,9 @@ export const artifactPath = (slug: string) => `/artifacts/${slug}/`
 export const inRoom = (room: Room) => artifacts.filter((a) => a.room === room)
 
 export const findArtifact = (slug: string) => artifacts.find((a) => a.slug === slug)
+
+/** The artifact an old, retired slug now points to */
+export const findByFormerSlug = (slug: string) => artifacts.find((a) => a.formerSlugs?.includes(slug))
 
 /** "Nearby on the shelf" ~ hand-picked if set, otherwise same room, same game first */
 export function relatedTo(artifact: Artifact, count = 3): Artifact[] {

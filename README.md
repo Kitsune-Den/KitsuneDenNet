@@ -72,6 +72,8 @@ Order within the array is display order within that room.
 
 Every entry gets a page built from the same data. For a richer page, add a `detail` object: a before/after `stat`, a "how it works" `steps` grid, `install` steps (wrap file and folder names in backticks), `requires` / `madeWith` for the sidebar, `mantel` trophies, and hand-picked `related` slugs. See KitsunePaintUnlocked for the full set.
 
+Renaming or merging an entry? Put the old slug in `formerSlugs` on the entry that replaces it. The build leaves a redirect page at the old address, so links keep working, and the deploy never deletes files, so an old page would otherwise linger.
+
 Den Radio broadcasts, the mantel trophies on the home page and the Ko-fi offerings live in `src/data/den.ts`. Bump the first broadcast when a new game version is verified.
 
 ### The Rule
