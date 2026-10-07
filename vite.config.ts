@@ -42,6 +42,31 @@ function artifactPages(): Plugin {
         const dir = resolve(outDir, `.${artifactPath(artifact.slug)}`)
         mkdirSync(dir, { recursive: true })
         writeFileSync(resolve(dir, 'index.html'), html)
+
+        // Retired slugs get a plain redirect page. The deploy never deletes
+        // files, so without this the old page would linger, still wired to
+        // an old bundle.
+        for (const former of artifact.formerSlugs ?? []) {
+          const formerDir = resolve(outDir, `.${artifactPath(former)}`)
+          mkdirSync(formerDir, { recursive: true })
+          writeFileSync(
+            resolve(formerDir, 'index.html'),
+            `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>${title}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="${url}" />
+    <meta http-equiv="refresh" content="0; url=${artifactPath(artifact.slug)}" />
+  </head>
+  <body style="background:#110c1d;color:#f1eaf8;font-family:system-ui,sans-serif">
+    <p>This page moved to <a href="${artifactPath(artifact.slug)}" style="color:#e6bd6c">${escapeAttr(artifact.name)}</a>.</p>
+  </body>
+</html>
+`,
+          )
+        }
       }
 
       const sitemapPath = resolve(outDir, 'sitemap.xml')
