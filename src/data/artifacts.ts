@@ -202,10 +202,15 @@ export const artifacts: Artifact[] = [
     name: 'KitsuneDen Paint',
     room: 'apps',
     tier: 'gilded',
-    tagline: 'Browser-based drawing and paint app',
-    description: 'A lightweight, browser-based paint application hosted on the KitsuneDen network.',
-    tags: ['paint', 'drawing', 'creative', 'web-app'],
-    links: { open: 'https://paint.kitsuneden.net' },
+    game: '7dtd',
+    tagline: 'Custom paint pack creator for 7 Days to Die',
+    description:
+      'The web side of KitsunePaint. Drop in your textures, preview how they tile on a wall, and download a ready-to-install modlet. No Unity required.',
+    tags: ['7dtd', 'paint', 'textures', 'web-tool'],
+    links: { open: 'https://paint.kitsuneden.net', source: gh('Kitsune-Den/KitsunePaint') },
+    detail: {
+      related: ['kitsunepaint', 'kitsunepaintunlocked', 'kitsuneden-prints'],
+    },
   },
   {
     slug: 'kitsuneden-prints',
