@@ -137,11 +137,12 @@ const readmeFallback = computed(() => !detail.value.install && !props.artifact.l
           <div v-if="detail.steps" class="flex flex-col gap-[18px]">
             <h2 class="m-0 font-display text-[34px] font-bold text-den-heading">{{ detail.steps.title }}</h2>
             <p class="m-0 max-w-[62ch] text-[17px] leading-[1.7] text-den-text-2">{{ detail.steps.intro }}</p>
-            <ol class="m-0 grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,260px),1fr))] gap-3.5 p-0">
+            <!-- two columns; an odd one out takes the whole last row rather than sitting alone -->
+            <ol class="m-0 grid list-none grid-cols-1 gap-3.5 p-0 sm:grid-cols-2">
               <li
                 v-for="step in detail.steps.items"
                 :key="step.label"
-                class="flex flex-col gap-2 rounded-[18px] border border-den-violet/25 bg-den-card p-[22px]"
+                class="flex flex-col gap-2 rounded-[18px] border border-den-violet/25 bg-den-card p-[22px] sm:odd:last:col-span-2"
               >
                 <span class="font-mono text-xs text-den-foxfire">{{ step.label }}</span>
                 <span class="font-display text-[19px] font-semibold text-den-heading">{{ step.title }}</span>

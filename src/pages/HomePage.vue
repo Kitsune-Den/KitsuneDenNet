@@ -2,7 +2,7 @@
 import { artifactPath, artifacts, inRoom, rooms, tiers, type Tier } from '../data/artifacts'
 import { links, offerings, trophies } from '../data/den'
 import { linkAttrs } from '../lib/links'
-import heroImg from '../assets/den-hero.jpg'
+import heroImg from '../assets/den-hero.webp'
 import discordBannerImg from '../assets/discord-banner.webp'
 import SiteHeader from '../components/SiteHeader.vue'
 import SiteFooter from '../components/SiteFooter.vue'
@@ -84,6 +84,9 @@ const offeringStyles = {
               <img
                 :src="heroImg"
                 alt="A white nine-tailed fox in headphones lounging beside a vintage radio, a full moon and torii gate visible through a round window"
+                width="1254"
+                height="879"
+                fetchpriority="high"
                 class="block size-full object-cover object-[40%_50%]"
               />
             </div>
