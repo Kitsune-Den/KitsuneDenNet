@@ -182,8 +182,9 @@ const readmeFallback = computed(() => !detail.value.install && !props.artifact.l
               </li>
             </ol>
             <p v-if="artifact.links.source" class="m-0 text-[15px] text-den-muted">
-              Troubleshooting and the full changelog live in the
-              <a v-bind="linkAttrs(`${artifact.links.source}#readme`)" class="font-semibold">README</a>.
+              The
+              <a v-bind="linkAttrs(`${artifact.links.source}#readme`)" class="font-semibold">README</a>
+              has the full details.
             </p>
           </div>
           <div v-else-if="readmeFallback" class="flex flex-col gap-3.5">

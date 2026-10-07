@@ -385,6 +385,17 @@ export const artifacts: Artifact[] = [
       'Real-time dashboards, GPS map with player tracking, web console, economy system, teleportation, and backup scheduling. Supports 5 languages.',
     tags: ['7dtd', 'server-management', 'web-panel', 'api'],
     links: { source: gh('Kitsune-Den/KitsuneCommand'), docs: 'https://kitsunecommand.kitsuneden.net' },
+    detail: {
+      installNote: 'The web panel lives on port `8890`, not `8888`. The same zip works on Windows and Linux servers.',
+      install: [
+        'Download the latest `KitsuneCommand-vX.Y.Z.zip` from the GitHub releases.',
+        'Extract it so `Mods/KitsuneCommand/` sits in your dedicated server folder.',
+        'Start the server.',
+        'Open `http://your-server-ip:8890` in a browser.',
+        'On first run, the server console prints your generated admin login. Sign in with that.',
+      ],
+      requires: 'A 7D2D dedicated server, V2.5+',
+    },
   },
   {
     slug: 'kitsune-kitchen-7d',
@@ -398,6 +409,15 @@ export const artifacts: Artifact[] = [
       '16 new recipes, 7 custom buffs, magazine progression, and a Sham Sandwich vendor fix. Emphasizes wasteland ingredient reuse.',
     tags: ['7dtd', 'cooking', 'mod'],
     links: { source: gh('Kitsune-Den/KitsuneKitchen7D'), nexus: nexus(10022) },
+    detail: {
+      install: [
+        'Download `KitsuneKitchen-vX.Y.Z.zip` from the GitHub releases.',
+        "Copy the `KitsuneKitchen7D` folder into the game's `Mods/` folder, or the server's on a dedicated server.",
+        'Restart the game or server.',
+        "Check it's listed in the in-game Mods menu.",
+      ],
+      requires: 'EAC off',
+    },
   },
   {
     slug: 'kitsunepaint',
@@ -412,6 +432,15 @@ export const artifacts: Artifact[] = [
     tags: ['7dtd', 'paint', 'textures', 'web-tool'],
     links: { source: gh('Kitsune-Den/KitsunePaint'), nexus: nexus(10021) },
     detail: {
+      installNote: 'KitsunePaint builds the paint pack, and the pack is what goes in `Mods/`. Packs work on both V2.x and V3.x.',
+      install: [
+        'Open paint.kitsuneden.net, drop in your textures, check the tiling preview, and download the modlet zip.',
+        'Install Python, then run `pip install UnityPy Pillow`.',
+        'Build the asset bundles with `python scripts/build_bundle.py "path/to/your/modlet/Resources"`. No Unity needed.',
+        'Install OCBCustomTextures (v0.8.0+) on the server and every client, with EAC off.',
+        'Drop your finished modlet into `Mods/` on the server and every client.',
+      ],
+      requires: 'OCBCustomTextures v0.8.0+ · EAC off',
       mantel: [{ title: 'Mod of the Week', text: 'Picked as Mod of the Week — no Unity required.' }],
     },
   },
@@ -427,6 +456,13 @@ export const artifacts: Artifact[] = [
       'Plantable, choppable sakura (cherry blossom) and keyaki (Japanese zelkova) trees. The first documented working pattern for custom-mesh blocks via mod bundle in 7DTD V2.6.',
     tags: ['7dtd', 'trees', 'japanese', 'custom-mesh'],
     links: { source: gh('Kitsune-Den/KitsuneFlora') },
+    detail: {
+      install: [
+        'Download `KitsuneFlora-vX.Y.Z.zip` from the GitHub releases.',
+        'Drop the `KitsuneFlora` folder into `Mods/` on the server and every client. It adds new blocks, so everyone needs it.',
+        'Start a game. Seeds turn up in loot and at traders, and the trees grow wild in the pine forest.',
+      ],
+    },
   },
   {
     slug: 'kitsunefoxacary',
@@ -440,6 +476,14 @@ export const artifacts: Artifact[] = [
       'Fills vanilla medical gaps with Field Braces, Suture Kits, Honeyed Battle Dressings, Royal Jelly Salves, and Transfusion Kits. Finally uses blood bags, queen bees, and testosterone extract. Slots into the existing medical journal progression.',
     tags: ['7dtd', 'medical', 'recipes', 'expansion'],
     links: { source: gh('Kitsune-Den/KitsuneFoxacary') },
+    detail: {
+      install: [
+        'Download `KitsuneFoxacary-vX.Y.Z.zip` from the GitHub releases.',
+        'Drop the `KitsuneFoxacary` folder into `Mods/` on the server and every client. It adds new items, so everyone needs it.',
+        'Launch the game. The new recipes slot into the medical journal progression.',
+      ],
+      requires: 'Nothing. XML only, no DLL',
+    },
   },
   {
     slug: 'kitsunezombiereach',
@@ -453,6 +497,15 @@ export const artifacts: Artifact[] = [
       'Server-side XML mod covering 17 zombie hand items including Rancher, Chuck, and crawlers. Reduces horizontal melee reach without changing damage or timing.',
     tags: ['7dtd', 'combat', 'zombies', 'server-side'],
     links: { source: gh('Kitsune-Den/KitsuneZombieReach') },
+    detail: {
+      installNote: "Server-side only. Players don't install anything.",
+      install: [
+        'Download `KitsuneZombieReach-X.Y.Z.zip` from the GitHub releases.',
+        'Drop the `KitsuneZombieReach` folder into `Mods/` on the server, or in your own game for single player.',
+        'Restart the server.',
+      ],
+      requires: 'Nothing. XML only, EAC-safe',
+    },
   },
   {
     slug: 'kitsunetrapxp',
@@ -466,6 +519,16 @@ export const artifacts: Artifact[] = [
       'Harmony mod that grants trap owners full XP for spike traps, barbed fence, blade traps, dart traps, and turrets. Party-shared via vanilla PartySharedKillRange. Advanced Engineering becomes a bonus on top. Server-side only.',
     tags: ['7dtd', 'harmony', 'xp', 'traps', 'server-side'],
     links: { source: gh('Kitsune-Den/KitsuneTrapXP') },
+    detail: {
+      installNote: "Server-side only. Players don't install anything.",
+      install: [
+        'Turn EAC off on the server. It blocks Harmony DLL mods.',
+        'Download `KitsuneTrapXP-X.Y.Z.zip` from the GitHub releases.',
+        'Drop the `KitsuneTrapXP` folder into `Mods/` on the server, or in your own game for single player.',
+        'Restart the server.',
+      ],
+      requires: 'EAC off on the server',
+    },
   },
   {
     slug: 'kitsunepvpextended',
@@ -479,6 +542,16 @@ export const artifacts: Artifact[] = [
       'Per-weapon-class scaling, body-part multipliers, and a per-hit damage cap. PvE stays 100% vanilla. Hot-reloadable XML config, bundled balance presets, daily CSV telemetry. Built for community bounty BB-001.',
     tags: ['7dtd', 'pvp', 'harmony', 'server-side', 'balance'],
     links: { source: gh('Kitsune-Den/KitsunePvPExtended') },
+    detail: {
+      installNote: "Server-side only. Players don't install anything, and can keep EAC on.",
+      install: [
+        'Turn EAC off on the server. It blocks Harmony DLL mods.',
+        "Extract `KitsunePvPExtended-X.Y.Z.zip` into the server's `Mods/` folder. It unpacks to a single `KitsunePvPExtended/` folder.",
+        'Restart the server.',
+        'When the first player connects, check the log for `[KitsunePvP] Patched NetPackageDamageEntity.ProcessPackage`.',
+      ],
+      requires: 'EAC off on the server',
+    },
   },
   {
     slug: 'kitsune-vehicle-overhaul',
@@ -493,6 +566,12 @@ export const artifacts: Artifact[] = [
     tags: ['7dtd', 'vehicles', 'rebalance', 'server-side'],
     links: { source: gh('Kitsune-Den/KitsuneVehicleOverhaul'), nexus: nexus(10057) },
     detail: {
+      installNote: 'Server-side only. Clients get the configs when they connect.',
+      install: [
+        'Download `KitsuneVehicleOverhaul-vX.Y.Z.zip` from the GitHub releases.',
+        'Drop the `zz_Kitsune Vehicle Overhaul` folder into `Mods/`. Keep the `zz_` prefix: it makes the mod load after every vehicle pack, so their vehicles get patched too.',
+        "Restart the server. Vehicle packs you don't have installed are skipped without warnings.",
+      ],
       mantel: [{ title: 'Nexus top six', text: 'Trended among the top mods on Nexus.' }],
     },
   },
@@ -508,6 +587,14 @@ export const artifacts: Artifact[] = [
       'Harmony postfix on TileEntityWorkstation.UpdateTick that turns workstations off when the craft queue is empty and smelting is done. Server-side only. About 40 lines of C#.',
     tags: ['7dtd', 'harmony', 'quality-of-life', 'server-side'],
     links: { source: gh('Kitsune-Den/KitsuneFuelSaver'), nexus: nexus(10231) },
+    detail: {
+      installNote: "Server-side only. Joining players don't need it.",
+      install: [
+        'Download `KitsuneFuelSaver-vX.Y.Z.zip` from the GitHub releases.',
+        'Extract it so `Mods/KitsuneFuelSaver/` sits in your 7D2D install, or on the host or dedicated server.',
+        'Launch, and look for `[KitsuneFuelSaver] Loading Harmony patches` in the log.',
+      ],
+    },
   },
   {
     slug: 'kitsunepower',
@@ -521,6 +608,15 @@ export const artifacts: Artifact[] = [
       'Pure-XML rebalance of the solar + generator + battery power chain, built around quality-6 car batteries. Server-side, EAC-safe, no DLL.',
     tags: ['7dtd', 'power', 'rebalance', 'server-side'],
     links: { source: gh('Kitsune-Den/KitsunePower') },
+    detail: {
+      installNote: "Server-side only. Players don't install anything.",
+      install: [
+        'Download `KitsunePower-X.Y.Z.zip` from the GitHub releases.',
+        'Drop the `KitsunePower` folder into `Mods/` on the server, or in your own game for single player.',
+        'Restart the server.',
+      ],
+      requires: 'Nothing. XML only, EAC-safe',
+    },
   },
   {
     slug: 'kitsuneloads',
@@ -534,6 +630,16 @@ export const artifacts: Artifact[] = [
       'Harmony mod that randomizes 13 loading-screen backgrounds on every load. Patches the background_texture binding and removes aspect-lock for full-bleed 1920x1080 images.',
     tags: ['7dtd', 'harmony', 'loading-screen', 'cosmetic'],
     links: { source: gh('Kitsune-Den/KitsuneLoads'), nexus: nexus(10212) },
+    detail: {
+      installNote: 'There are three image sets: the zombies original, Cats of 7 Days, and the KitsuneSquared mix. They patch the same method, so install just one.',
+      install: [
+        "Turn EAC off. Harmony DLL mods don't run with it on.",
+        'Download your pick from the GitHub releases.',
+        'Copy its folder into `Mods/`, e.g. `Mods/KitsuneLoads/`.',
+        'Launch the game. A random image rolls every time a loading screen appears.',
+      ],
+      requires: 'EAC off',
+    },
   },
   {
     slug: 'kitsunecommand-hytale',
@@ -546,6 +652,16 @@ export const artifacts: Artifact[] = [
       'Points economy with kill tracking, playtime rewards, daily bonuses, and a web admin panel. Java reimagining of the original KitsuneCommand.',
     tags: ['hytale', 'server-management', 'economy', 'java'],
     links: { source: gh('Kitsune-Den/KitsuneCommandHytale') },
+    detail: {
+      installNote: "There's no prebuilt release yet, so this one is built from source.",
+      install: [
+        "Clone the repo. You'll need Java 25 or newer; Gradle comes with it.",
+        'Build the plugin with `./gradlew shadowJar`.',
+        "Copy `build/libs/KitsuneCommand-X.Y.Z.jar` into your Hytale server's `mods/` folder.",
+        'Restart the server.',
+      ],
+      requires: 'A Hytale dedicated server · Java 25+',
+    },
   },
   {
     slug: 'kitsune-kitchen',
@@ -559,6 +675,14 @@ export const artifacts: Artifact[] = [
       "Three-tier cooking progression from campfire to chef's stove. Healing, stamina, and damage resistance buffs with 30-45 minute durations.",
     tags: ['hytale', 'cooking', 'data-pack'],
     links: { source: gh('Kitsune-Den/KitsuneKitchen') },
+    detail: {
+      install: [
+        'Download `KitsuneKitchen-vX.Y.Z.zip` from the GitHub releases.',
+        "Copy the `KitsuneKitchen` folder into your server's `game/mods/` folder.",
+        'Restart the server.',
+      ],
+      requires: 'Hytale Early Access, Update 4+',
+    },
   },
   {
     slug: 'kitsunefox',
@@ -571,6 +695,14 @@ export const artifacts: Artifact[] = [
       'Craft a Fox Treat, befriend a Kitsune Fox with 500 HP. Phase 1 complete ~ leveling, abilities, and regional variants coming.',
     tags: ['hytale', 'companion', 'data-pack'],
     links: { source: gh('Kitsune-Den/KitsuneFox') },
+    detail: {
+      install: [
+        'Download or clone the repo.',
+        "Copy the `KitsuneFox` folder into your server's `game/mods/` folder.",
+        'Restart the server.',
+      ],
+      requires: 'Hytale Early Access',
+    },
   },
 
   // ── Room III · Tools & frameworks ─────────────────────────
