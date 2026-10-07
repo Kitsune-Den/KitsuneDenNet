@@ -1,41 +1,162 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── KitsuneDen Palette (from Gemini design system) ── */
+  /* ── "The Den at Night" ~ drawn from the Kitsune Den Radio artwork ── */
 
-  /* Backgrounds */
-  --color-den-dark: #0a0a0f;
-  --color-den-deeper: #111118;
-  --color-den-surface: #1a1a24;
-  --color-den-muted: #242430;
-  --color-den-border: #2e2e3a;
-
-  /* Tier colors */
-  --color-tier-gilded: #FFD700;
-  --color-tier-azure: #00E5FF;
-  --color-tier-bronze: #CD7F32;
-  --color-tier-gray: #8E8E8E;
-
-  /* Accents */
-  --color-fox-orange: #f59e0b;
-  --color-fox-amber: #d97706;
-  --color-fox-warm: #fbbf24;
-  --color-ember: #ef4444;
-  --color-moss: #22c55e;
+  /* Ground & surfaces */
+  --color-den-ground: #110c1d;
+  --color-den-band: #19122b;
+  --color-den-card: #1b142e;
+  --color-den-footer: #0c0815;
 
   /* Text */
-  --color-text-primary: #f3f4f6;
-  --color-text-secondary: #9ca3af;
-  --color-text-muted: #6b7280;
+  --color-den-text: #f1eaf8;
+  --color-den-text-2: #d9cfe8;
+  --color-den-muted: #b8abcf;
+  --color-den-heading: #f6e7c4;
+  --color-den-on-gold: #1a1128;
+
+  /* Accents */
+  --color-den-gold: #e6bd6c;
+  --color-den-gold-hover: #f6dca2;
+  --color-den-lavender: #cdbaf5;
+  --color-den-violet: #9d7bea;
+  --color-den-foxfire: #86d8f2;
+  --color-den-amber: #f2a65a;
+  --color-den-needle: #ff7a45;
 
   /* Typography */
-  --font-display: 'Saira Stencil One', system-ui, sans-serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cinzel', serif;
+  --font-voice: 'Cormorant Garamond', serif;
+  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
 }
 
-body {
-  margin: 0;
-  background: var(--color-den-dark);
-  color: var(--color-text-primary);
+@layer base {
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-den-text);
+    background-color: var(--color-den-ground);
+    /* purple checker lattice from the art */
+    background-image: repeating-conic-gradient(rgb(157 123 234 / 0.045) 0 25%, transparent 0 50%);
+    background-size: 56px 56px;
+  }
+
+  a {
+    color: var(--color-den-gold);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-den-gold-hover);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-den-gold);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Mono label above headings */
+  .den-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* The italic "voice" line under headings */
+  .den-voice {
+    font-family: var(--font-voice);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-den-lavender);
+  }
+
+  .den-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: rgb(157 123 234 / 0.12);
+    color: var(--color-den-lavender);
+  }
+
+  /* Gold pill */
+  .den-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 999px;
+    background: var(--color-den-gold);
+    color: var(--color-den-on-gold);
+    font-weight: 700;
+    transition: filter 0.2s ease;
+  }
+
+  .den-btn:hover {
+    color: var(--color-den-on-gold);
+    filter: brightness(1.08);
+  }
+
+  /* Outline pill */
+  .den-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 20px;
+    border-radius: 999px;
+    border: 1px solid rgb(230 189 108 / 0.45);
+    color: var(--color-den-heading);
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+  }
+
+  .den-ghost:hover {
+    color: var(--color-den-heading);
+    background: rgb(230 189 108 / 0.1);
+  }
+
+  /* Cards lift and turn gold */
+  .den-card {
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .den-card:hover,
+  .den-card:focus-within {
+    transform: translateY(-3px);
+    border-color: rgb(230 189 108 / 0.55);
+  }
+
+  /* Rows get a violet wash */
+  .den-row {
+    transition: background-color 0.2s ease;
+  }
+
+  .den-row:hover {
+    background: rgb(157 123 234 / 0.09);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .den-card:hover,
+  .den-card:focus-within {
+    transform: none;
+  }
 }

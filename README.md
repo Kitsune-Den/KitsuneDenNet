@@ -8,6 +8,8 @@ Not everything makes it here. If it's on the site, it earned its spot.
 
 Vue 3 + TypeScript + Tailwind CSS + Vite. Keeps things light and agent-friendly.
 
+The look is "The Den at Night": colours, fonts and shared component classes live in `src/style.css`.
+
 ## Dev
 
 ```bash
@@ -23,51 +25,54 @@ npm run build
 
 Output goes to `dist/`. Deploy that to the VPS web root.
 
-## Adding a Project
+## Adding an Artifact
 
-Everything lives in one file: `src/data/projects.ts`. Add an object to the `projects` array and the site picks it up automatically. No other files need to change.
+Everything lives in one file: `src/data/artifacts.ts`. Add an object to the `artifacts` array and the site picks it up automatically: the home page shows it in its room, and the build writes its own page at `/artifacts/<slug>/`. No other files need to change.
 
-Here's the shape of a project entry:
+Here's the shape of an entry:
 
 ```typescript
 {
+  slug: 'your-project',       // URL-safe, becomes /artifacts/your-project/
   name: 'Your Project Name',
+  room: 'mods',               // which room of the den it lives in, see below
+  tier: 'azure',              // see tiers below
+  version: 'v1.0.0',          // optional, shows on the mod seal and artifact page
+  game: '7dtd',               // optional: '7dtd' | 'hytale', drives the mod filter
   tagline: 'Short and punchy - this shows on the card',
-  description: 'Longer description for the expanded view. Optional but recommended.',
-  type: 'source',           // 'source' = links to GitHub, 'deployed' = lives on a subdomain
-  tier: 'azure',            // see tier system below
-  version: 'v1.0.0',       // optional
-  url: 'https://github.com/AdaInTheLab/your-repo',
-  repo: 'https://github.com/AdaInTheLab/your-repo',  // optional, omit for private repos
+  description: 'Longer description for the artifact page. Optional but recommended.',
   tags: ['7dtd', 'mod'],
-  section: 'game-mods',     // which section it appears in
+  links: {
+    open: 'https://your-app.kitsuneden.net',              // live app, if it has one
+    source: 'https://github.com/Kitsune-Den/your-repo',   // omit for private repos
+    docs: 'https://docs.example.com',                     // optional
+    nexus: 'https://www.nexusmods.com/7daystodie/mods/1', // optional
+  },
 }
 ```
 
-### Sections
+Order within the array is display order within that room.
 
-Projects go into one of four sections. Pick the one that fits:
+### Rooms
 
-- `apps` - Full-stack applications with their own homes (subdomains, standalone deploys)
-- `game-mods` - Mods and data packs for 7 Days to Die, Hytale, etc.
-- `tools` - Developer tools, CLIs, and frameworks
-- `experiments` - Proof-of-concepts, satire, and things we made because we could
-
-Order within the array is display order within that section.
+- `flagship` - The Hearth. KitsuneDen itself, shown big near the top
+- `apps` - The Lanterns. Full apps with homes of their own
+- `mods` - The Scroll Shelf. Mods and data packs for 7 Days to Die and Hytale
+- `tools` - The Toolchest. Developer tools, CLIs, and frameworks
+- `curios` - Curios. Proof-of-concepts, satire, and things we made because we could
+- `voices` - Voices of the Skulk. Where the Skulk speaks; set `action` to `Visit`, `Listen` or `Read`
 
 ### Tiers
 
-Each project gets a certification tier that controls its card glow color:
+- **gilded** (gold leaf) - Polished & proven. A lot of work went into this.
+- **azure** (foxfire) - Lit & growing.
+- **bronze** - Small, sharp, done.
 
-- **gilded** (gold, `#FFD700`) - The real deal. Polished, significant, a lot of work went into this.
-- **azure** (cyan, `#00E5FF`) - AI-enhanced or skulk-assisted. Still solid, just built differently.
-- **bronze** (amber, `#CD7F32`) - Good work, maybe earlier stage or smaller scope.
-- **gray** (`#8E8E8E`) - Base tier. Community contributions, stubs, starting points.
+### Artifact pages
 
-### Type
+Every entry gets a page built from the same data. For a richer page, add a `detail` object: a before/after `stat`, a "how it works" `steps` grid, `install` steps (wrap file and folder names in backticks), `requires` / `madeWith` for the sidebar, `mantel` trophies, and hand-picked `related` slugs. See KitsunePaintUnlocked for the full set.
 
-- `source` - Links to a GitHub repo. Most mods and tools use this.
-- `deployed` - Lives on a subdomain (like `paint.kitsuneden.net`). Set the `url` to the live site and optionally include `webApp`, `appStore`, or `googlePlay` links.
+Den Radio broadcasts, the mantel trophies on the home page and the Ko-fi offerings live in `src/data/den.ts`. Bump the first broadcast when a new game version is verified.
 
 ### The Rule
 
