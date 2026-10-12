@@ -8,7 +8,7 @@ export const links = {
   kofi: 'https://ko-fi.com/adainthelab',
   kofiTiers: 'https://ko-fi.com/adainthelab/tiers',
   kofiCommissions: 'https://ko-fi.com/adainthelab/commissions',
-  discord: 'https://goodtimes.gg/discord',
+  discord: 'https://kitsuneden.net/discord',
   github: 'https://github.com/Kitsune-Den',
   lab: 'https://adainthelab.com',
   skulk: 'https://skulk.ai',
