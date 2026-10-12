@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /** Line icons ~ stroke follows currentColor */
 defineProps<{
-  name: 'arrow' | 'github' | 'code' | 'next' | 'external'
+  name: 'arrow' | 'github' | 'code' | 'next' | 'prev' | 'pause' | 'play' | 'external'
   size?: number
 }>()
 
@@ -12,6 +12,9 @@ const paths = {
   ],
   code: ['M8 7l-5 5 5 5M16 7l5 5-5 5'],
   next: ['M5 5v14l9-7z', 'M18 5v14'],
+  prev: ['M19 5v14l-9-7z', 'M6 5v14'],
+  pause: ['M8 5v14', 'M16 5v14'],
+  play: ['M7 5v14l11-7z'],
   external: ['M14 4h6v6', 'M20 4l-9 9', 'M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'],
 }
 </script>
