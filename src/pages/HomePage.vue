@@ -227,8 +227,8 @@ const offeringStyles = {
           <img
             :src="discordBannerImg"
             alt="Join our Discord ~ KitsuneDen. Come say hi, hang out in voice chat, and ask for modding help, tool tips, and community advice"
-            width="400"
-            height="268"
+            width="600"
+            height="403"
             loading="lazy"
             class="block h-auto w-full"
           />
