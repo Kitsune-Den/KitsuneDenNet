@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { artifactPath, artifacts, inRoom, rooms, tiers, type Tier } from '../data/artifacts'
 import { links, offerings, trophies } from '../data/den'
+import { hearth } from '../data/hearth'
 import { linkAttrs } from '../lib/links'
 import heroImg from '../assets/den-hero.webp'
 import discordBannerImg from '../assets/discord-banner.webp'
@@ -13,7 +14,6 @@ import LanternCard from '../components/LanternCard.vue'
 import ScrollShelf from '../components/ScrollShelf.vue'
 import DenIcon from '../components/DenIcon.vue'
 
-const flagship = inRoom('flagship')[0]
 const apps = inRoom('apps')
 const tools = inRoom('tools')
 const curios = inRoom('curios')
@@ -96,7 +96,7 @@ const offeringStyles = {
 
       <DenRadio />
 
-      <HearthPanel :artifact="flagship" />
+      <HearthPanel :slides="hearth" />
 
       <!-- Tier legend -->
       <section aria-label="Registry tiers" class="mx-auto max-w-[1240px] px-6 pt-6">

@@ -189,6 +189,18 @@ export const artifacts: Artifact[] = [
     links: { open: 'https://voidsluice.com' },
   },
   {
+    slug: 'peanut-gallery',
+    name: 'Peanut Gallery',
+    room: 'apps',
+    tier: 'azure',
+    wip: true,
+    tagline: 'An AI co-host for your stream ~ five voices, one overlay',
+    description:
+      'Peanut Gallery watches your stream, heckles your plays and cheers your wins, out loud, right on your overlay. Pick your co-host: Peanut the fox, Mochi the tanuki, Vex the crow, Quill the owl or Wisp the ghost. Coming soon.',
+    tags: ['streaming', 'twitch', 'ai', 'overlay', 'co-host'],
+    links: { open: 'https://peanutgallery.gg' },
+  },
+  {
     slug: 'meowademy',
     name: 'Meowademy',
     room: 'apps',
