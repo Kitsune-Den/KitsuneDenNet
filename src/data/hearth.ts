@@ -7,6 +7,7 @@
 
 import { findArtifact, type Artifact } from './artifacts'
 import kitsunedenImg from '../assets/hearth/kitsuneden.webp'
+import kitsuneuiImg from '../assets/hearth/kitsuneui.webp'
 import kitsunecommandImg from '../assets/hearth/kitsunecommand.webp'
 import paintUnlockedImg from '../assets/hearth/kitsunepaintunlocked.webp'
 import echoImg from '../assets/hearth/echo.webp'
@@ -24,6 +25,11 @@ const slides: { slug: string; image: string; alt: string }[] = [
     slug: 'kitsuneden',
     image: kitsunedenImg,
     alt: 'The KitsuneDen dashboard showing server status, system resources and a live console log',
+  },
+  {
+    slug: 'kitsuneui',
+    image: kitsuneuiImg,
+    alt: 'The 7 Days to Die main menu as a dark indigo glass rail down the left edge, beside a misty forest cabin at night',
   },
   {
     slug: 'kitsunecommand',
