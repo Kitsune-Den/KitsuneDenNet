@@ -595,6 +595,28 @@ export const artifacts: Artifact[] = [
     },
   },
   {
+    slug: 'kitsunebackpack',
+    name: 'KitsuneBackpack',
+    room: 'mods',
+    tier: 'azure',
+    version: 'v1.2.0',
+    game: '7dtd',
+    tagline: 'A 136-slot backpack you still have to earn',
+    description:
+      "Grows the bag to 136 slots without skipping vanilla's locked-slot progression: 27 free at spawn, and Pack Mule unlocks about 22 more per level. Fits V3.3's scrolling backpack window at vanilla size, enlarges the death bag so a full inventory fits in it, and rescales encumbrance so a stuffed bag tops out near vanilla's mobility loss. Pure XML, no DLL.",
+    tags: ['7dtd', 'backpack', 'inventory', 'quality-of-life'],
+    links: { source: gh('AdaInTheLab/KitsuneBackpack') },
+    detail: {
+      installNote: 'Server and every client. The server sends the bag data, but the grid is client-side UI, so players without the mod never see their extra slots.',
+      install: [
+        'Download `KitsuneBackpack-X.Y.Z.zip` from the GitHub releases.',
+        'Drop the `KitsuneBackpack` folder into `Mods/` on the server and on every client.',
+        'Restart. Growing the bag is safe on existing saves, but removing the mod later shrinks bags back to 45 and can orphan items in the extra slots.',
+      ],
+      requires: 'V3.3 or later (use 1.0.1 on V3.0 to V3.2) · XML only, no DLL',
+    },
+  },
+  {
     slug: 'kitsune-vehicle-overhaul',
     name: 'Kitsune Vehicle Overhaul',
     room: 'mods',
