@@ -45,6 +45,9 @@ const navLinks: { label: string; anchor: string; rooms: Room[] }[] = [
         >
           {{ link.label }}
         </a>
+        <a v-bind="linkAttrs(links.tutorials)" class="inline-flex min-h-11 items-center text-den-lavender hover:text-den-gold-hover">
+          Tutorials
+        </a>
         <a v-bind="linkAttrs(links.kofi)" class="den-btn min-h-11 px-[18px] font-semibold">Leave an offering</a>
       </nav>
     </div>
