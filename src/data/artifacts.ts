@@ -748,6 +748,18 @@ export const artifacts: Artifact[] = [
 
   // ── Room III · Tools & frameworks ─────────────────────────
   {
+    slug: 'kitsune-den-tutorials',
+    name: 'Kitsune Den Tutorials',
+    room: 'tools',
+    tier: 'azure',
+    game: '7dtd',
+    tagline: '7 Days to Die modding, the long way round, written down',
+    description:
+      "Step by step modding tutorials, written from mods we actually shipped. The first one builds a player outfit from nothing: a mesh made by script, weighted to the game's rig, packed into a Unity bundle, then made into armor and a wardrobe look. Every trap we hit is in there, so you don't have to hit it too.",
+    tags: ['7dtd', 'tutorial', 'modding', 'docs'],
+    links: { open: 'https://tutorials.kitsuneden.net' },
+  },
+  {
     slug: 'one-front-door',
     name: 'One Front Door',
     room: 'tools',

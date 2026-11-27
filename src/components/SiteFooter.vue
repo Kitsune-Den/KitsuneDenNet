@@ -3,6 +3,7 @@ import { links } from '../data/den'
 import { linkAttrs } from '../lib/links'
 
 const elsewhere = [
+  { label: 'Tutorials', href: links.tutorials },
   { label: 'GitHub', href: links.github },
   { label: 'The Human Pattern Lab', href: links.lab },
   { label: 'skulk.ai', href: links.skulk },

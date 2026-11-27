@@ -10,6 +10,7 @@ export const links = {
   kofiCommissions: 'https://ko-fi.com/adainthelab/commissions',
   discord: 'https://kitsuneden.net/discord',
   github: 'https://github.com/Kitsune-Den',
+  tutorials: 'https://tutorials.kitsuneden.net',
   lab: 'https://adainthelab.com',
   skulk: 'https://skulk.ai',
   privacy: '/privacy/',
