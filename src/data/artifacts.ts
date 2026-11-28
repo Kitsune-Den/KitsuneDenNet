@@ -434,7 +434,7 @@ export const artifacts: Artifact[] = [
     name: 'KitsuneUI',
     room: 'mods',
     tier: 'gilded',
-    version: 'v1.15.1',
+    version: 'v1.17.17',
     game: '7dtd',
     tagline: 'Night glass for every screen in 7 Days to Die ~ and a framework for your mods',
     voice: 'Deep indigo glass, fox-fire cyan and gold, across every screen in the game.',
@@ -451,7 +451,7 @@ export const artifacts: Artifact[] = [
         { name: '13 languages', text: "Follows the game's language setting." },
         { name: 'For modders', text: 'Colours, sprites and templates at ui.kitsuneden.net.' },
       ],
-      installNote: 'The optional add-ons (`Toolbelt20`, `JobPreview`, `Settings`) are small DLLs and need EAC off. The theme itself and `Loading` work with EAC on.',
+      installNote: 'The optional add-ons `Toolbelt20`, `JobPreview`, `Settings` and `Practice` are small DLLs and need EAC off. The theme itself and `Loading` work with EAC on.',
       install: [
         'Download the zips you want from the GitHub releases or Nexus.',
         'Unzip each one into `Mods/`, so you end up with `Mods/KitsuneUI/ModInfo.xml`.',
